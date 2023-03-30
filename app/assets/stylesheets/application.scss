@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+body,p,ul,td,th,h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    position: relative;
+}
