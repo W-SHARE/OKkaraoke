@@ -1,3 +1,118 @@
-.result-container{
-    background-color: yellow;
+.soart-button{
+    cursor: pointer;
+    color: #F4E662;
+    width: 274px;
+    height: 34px;
+    display: flex;
+    line-height: 34px;
+    border: solid 1px #F4E662;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.soart-button p{
+    width: 50%;
+    text-align: center;
+}
+#price-order{
+    border-right: #F4E662 solid 0.5px;
+}
+#distance-order{
+    border-left: #F4E662 solid 0.5px;
+}
+.soart-button-active {
+    color: white;
+    background-color: #F4E662;
+}
+.condition-container{
+    margin-top: 20px;
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+.main-condition{
+    font-size: 20px;
+}
+.sub-condition{
+    margin-top: 8px;
+}
+.result-content{
+    border-top: #F4E662 solid 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 35px 20px 0;
+}
+.result-left img{
+    height: 60px;
+    width: 117px;
+}
+.result-left p{
+    font-size: 13px;
+    width: 117px;
+}
+.price-display{
+    font-size: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+.result-right{
+    width: 45%;
+}
+.price-display img{
+    height: 33px;
+    cursor: pointer;
+}
+.each-info{
+    display: flex;
+}
+.other-info-above{
+    display: flex;
+    justify-content: space-between;
+}
+.each-info img{
+    height: 20px;
+}
+.each-info p{
+    margin-left: 8px;
+    font-size: 15px;
+}
+.other-info-below{
+    display: flex;
+    margin-top: 8px;
+}
+.other-info-below img{
+    height: 17px;
+    margin-left: 2px;
+}
+.other-info-below p{
+    margin-left: 8px;
+    font-size: 15px;
+    color: #4285F4;
+    cursor: pointer;
+}
+.move-footer{
+    margin-bottom: 110px;
+    text-align: center;
+}
+.move-button{
+    cursor: pointer;
+    width: 274px;
+    height: 34px;
+    display: flex;
+    line-height: 34px;
+    border: solid 1px #DBDBDB;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #F8F6F6;
+    margin-bottom: 8px;
+}
+.move-button p{
+    width: 50%;
+    text-align: center;
+}
+#back{
+    border-right: #DBDBDB2 solid 0.5px;
+}
+#next{
+    border-left: #DBDBDB solid 0.5px;
 }
