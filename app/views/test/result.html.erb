@@ -1,1 +1,52 @@
-<p>thi is a result page</p>
+<p>jQuery稼働テスト(未稼働)</p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("p").text("jQuery稼働テスト(稼働中)");
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>検索結果</p>
+    </div>
+    <div class="soart-button">
+    </div>
+    <div class="condition-container">
+        <p class="main-condition"></p>
+        <p></p>
+    </div>
+    <div class="result-container" id="price">
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p></p>
+            </div>
+            <div class="result-right">
+                <div>
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div>
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div>
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='button'>
+        <%= image_tag 'map-icon.png' %>
+        <%= link_to '地図で表示', '/search' %>
+    </div>
+</div>
