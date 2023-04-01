@@ -1,1 +1,37 @@
-<p>thi is a map page</p>
+<div class="map-wrapper">
+    <div class="result-map">
+        <%= image_tag 'demo-map.png' %>
+    </div>
+    <div class="result-content" id="result-map-description">
+        <div class="result-left">
+            <%= image_tag 'demo-bigecho.png' %>
+            <p>ビッグエコー高田馬場駅前店</p>
+        </div>
+        <div class="result-right">
+            <div class="price-display">
+                <p>720円</p>
+                <%= image_tag 'directions-icon.png' %>
+            </div>
+            <div class="other-info">
+                <div class="other-info-above">
+                    <div class="each-info">
+                        <%= image_tag 'distance-icon.png' %>
+                        <p>200m</p>
+                    </div>
+                    <div class="each-info">
+                        <%= image_tag 'directions_walk-icon.png' %>
+                        <p>1min</p>
+                    </div>
+                </div>
+                <div class="other-info-below" >
+                    <%= image_tag 'call-icon.png' %>
+                    <p>070-3369-6667</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='button' id="map-button">
+        <%= image_tag 'return-icon.png' %>
+        <%= link_to '一覧に戻る', '/result' %>
+    </div>
+</div>

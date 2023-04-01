@@ -17,10 +17,62 @@ body,p,ul,td,th,h1, h2, h3{
     margin: 0;
     padding: 0;
 }
+li{
+    list-style: none;
+}
 a{
     text-decoration: none;
     color: black;
 }
 body{
     position: relative;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+.hamburger-menu{
+    float: right;
+    margin-top: 40px;
+    margin-right: 50px;
+}
+.hamburger-menu img{
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+.navi{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    transition: 500ms;
+}
+.navi ul{
+    margin-top: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.navi p{
+    font-size: 34px;
+    border-bottom: #F4E662 solid 2px;
+    margin-bottom: 20px;
+}
+.navi li{
+    font-size: 20px;
+    border-bottom: 1px solid #F4E662;
+}
+.navi a{
+    display: block;
+    padding: 20px 0 20px 20px;
+}
+.navi a:hover{
+    background-color: #98C5E4;
+    transition: 200ms;
 }

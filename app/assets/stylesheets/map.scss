@@ -1,0 +1,19 @@
+.result-map img{
+width: 150%;
+}
+#result-map-description{
+    border: solid 1px #F4E662;
+    position: fixed;
+    bottom: 100px;
+    width: 80%;
+    left: 50%;
+	transform: translateX(-50%) ;
+    background-color: white;
+    padding-left: 20px;
+}
+#map-button{
+    opacity: 100%;
+}
+#map-button img{
+    padding-top: 3px;
+}

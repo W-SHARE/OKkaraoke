@@ -89,30 +89,18 @@
     color: #4285F4;
     cursor: pointer;
 }
-.move-footer{
-    margin-bottom: 110px;
-    text-align: center;
-}
-.move-button{
-    cursor: pointer;
-    width: 274px;
-    height: 34px;
-    display: flex;
-    line-height: 34px;
-    border: solid 1px #DBDBDB;
-    border-radius: 5px;
-    margin: 0 auto;
-    margin-top: 20px;
-    background-color: #F8F6F6;
-    margin-bottom: 8px;
-}
-.move-button p{
-    width: 50%;
-    text-align: center;
-}
 #back{
     border-right: #DBDBDB2 solid 0.5px;
 }
 #next{
     border-left: #DBDBDB solid 0.5px;
+}
+.is-hidden{
+    display: none;
+}
+.more-text{
+    cursor: pointer;
+    text-align: center;
+    color: #4285F4;
+    margin-top: 20px;
 }
