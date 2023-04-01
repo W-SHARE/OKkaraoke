@@ -1,0 +1,44 @@
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>検索条件</p>
+    </div>
+    <%= form_with url: result_path, method: :get, local: true do |f| %>
+    <div class='search-container'>
+        <div class='search-content'>
+            <p>料金体系</p>
+            <div class="selector">
+                <%= f.radio_button :price, :student, class: 'radio-button'%>
+                <%= f.label :price, '学生', {value: :student, name: 'left'} %>
+                <%= f.radio_button :price, :adult, class: 'radio-button'%>
+                <%= f.label :price, '一般', {value: :adult, name: 'right'} %>
+            </div>
+        </div>
+        <div class='search-content'>
+            <p>開始時間</p>
+            <div class="selector" name='time'>
+                <%= f.time_select :srtart %>
+            </div>
+        </div>
+        <div class='search-content'>
+            <p>利用時間</p>
+            <div class="selector" name='time'>
+                <%= f.time_select :length, class: 'time-selector'%>
+            </div>
+        </div>
+        <div class="search-content" name='last-content'>
+            <p>人数</p>
+            <div class="selector">
+                <%= f.radio_button :people, :solo, class: 'radio-button'%>
+                <%= f.label :people, '一人', {value: :solo, name: 'left'}%>
+                <%= f.radio_button :people, :group, class: 'radio-button' %>
+                <%= f.label :people, '複数', {value: :group, name: 'right'}%>
+            </div>
+        </div>
+    </div>
+    <div class='button'>
+        <%= image_tag 'search-icon.png' %>
+        <%= f.submit 'この条件で検索'%>
+    </div>
+    <% end %>
+</div>

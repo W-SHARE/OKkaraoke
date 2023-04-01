@@ -1,5 +1,12 @@
 # README
 
+重要共有事項
+- 主要ブランチがmasterになっているため
+  ```
+  git push origin master
+  ```
+  とする必要があります。   
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

@@ -1,0 +1,83 @@
+.page-header img{
+    display: block;
+    height: 50px;
+    border-radius: 60px;
+}
+.page-header{
+    display: flex;
+    font-size: 34px;
+    margin-top: 25px;
+    border-bottom: solid 2px #F4E662;
+}
+.search-content{
+    justify-content: space-between;
+    display: flex;
+    font-size: 20px;
+    height: 50px;
+    border-bottom: solid 1px #F4E662;
+    padding-right: 20px;
+}
+.search-container{
+    margin-top: 20px;
+}
+.search-wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+.search-content p{
+    line-height: 50px;
+}
+.search-content[name='last-content']{
+    border-bottom: none;
+}
+.radio-button{
+    display: none;
+}
+.radio-button:checked + label{
+    background-color: #F4E662;
+    color: white;
+}
+.selector{
+    border: solid 1px #F4E662;
+    border-radius: 5px;
+    height: 33px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 33px;
+}
+.selector label{
+    width: 50%;
+    text-align: center;
+    line-height: 33px;
+    border-radius: 5px;
+    color: #F4E662;
+}
+.selector select{
+    border: none;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    appearance: none;
+    opacity: 40%;
+}
+.selector label[name='right']{
+    border-radius: 0 5px 5px 0;
+    border-left: solid 0.5px #F4E662;
+}
+.selector label[name='left']{
+    border-radius: 5px 0 0 5px;
+    border-right: solid 0.5px #F4E662;
+}
+.button input{
+    border: none;
+    font-size: 20px;
+    background-color: #98C5E4;
+    color: white;
+}
+.button input:hover{
+    font-size: 21px;
+    transition: 100ms;
+}
