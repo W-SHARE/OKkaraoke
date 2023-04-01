@@ -1,1 +1,327 @@
-<p>thi is a result page</p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#distance').hide();
+        $("#price-order").addClass('soart-button-active');
+        $('#distance-order').click(function(){
+            $('#price').hide();
+            $('#distance').show();
+            $('#distance-order').addClass('soart-button-active');
+            $('#price-order').removeClass('soart-button-active');
+        });
+        $('#price-order').click(function(){
+            $('#price').show();
+            $('#distance').hide();
+            $('#price-order').addClass('soart-button-active');
+            $('#distance-order').removeClass('soart-button-active');
+        });
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>検索結果</p>
+    </div>
+    <div class="soart-button">
+        <p id="price-order">料金順</p>
+        <p id="distance-order">距離順</p>
+    </div>
+    <div class="condition-container">
+        <p class="main-condition">「学生、16時、1時間、複数」で検索したカラオケ情報</p>
+        <p class="sub-condition">45件 1-5件</p>
+    </div>
+    <div class="result-container" id="price">
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p>ビッグエコー高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p>ビッグエコー高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p>ビッグエコー高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p>ビッグエコー高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-bigecho.png' %>
+                <p>ビッグエコー高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="result-container" id="distance">
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-utahiroba.png' %>
+                <p>歌広場高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-utahiroba.png' %>
+                <p>歌広場高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-utahiroba.png' %>
+                <p>歌広場高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-utahiroba.png' %>
+                <p>歌広場高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-content">
+            <div class="result-left">
+                <%= image_tag 'demo-utahiroba.png' %>
+                <p>歌広場高田馬場駅前店</p>
+            </div>
+            <div class="result-right">
+                <div class="price-display">
+                    <p>720円</p>
+                    <%= image_tag 'directions-icon.png' %>
+                </div>
+                <div class="other-info">
+                    <div class="other-info-above">
+                        <div class="each-info">
+                            <%= image_tag 'distance-icon.png' %>
+                            <p>200m</p>
+                        </div>
+                        <div class="each-info">
+                            <%= image_tag 'directions_walk-icon.png' %>
+                            <p>1min</p>
+                        </div>
+                    </div>
+                    <div class="other-info-below" >
+                        <%= image_tag 'call-icon.png' %>
+                        <p>070-3369-6667</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="move-footer">
+        <div class="move-button">
+            <p id="back">＜ 戻る</p>
+            <p id="next">次へ ＞</p>
+        </div>
+        <p>1 / 9</p>
+    </div>
+    <div class='button'>
+        <%= image_tag 'map-icon.png' %>
+        <%= link_to '地図で表示', '/map' %>
+    </div>
+</div>
