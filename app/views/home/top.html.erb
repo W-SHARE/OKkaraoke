@@ -1,3 +1,44 @@
-<h1>OKカラオケ</h1>
-<%= link_to("検索","/search") %>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class='top-wrapper'>
+    <p class='version-name'>ver.1.0.0</p>
+    <%= image_tag 'top-logo.png', class: 'hero-img' %>
+    <div class='top-description'>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>カラオケ店舗を検索</p>
+                <%= image_tag 'top-search-logo.png' %>
+            </div>
+            <hr>
+            <P name='text'>
+                料金体系、利用する時間帯、利用時間、人数といった検索条件からお近くのカラオケ店舗を検索することができます。
+            </P>
+        </div>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>正確な料金を表示</p>
+                <%= image_tag 'top-money-logo.png' %>
+            </div>
+            <hr>
+            <P name='text'>
+                複雑で店舗によって異なるカラオケの料金を自動で計算し、正確な料金を表示します。
+            </P>
+        </div>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>バージョンアップにも期待</p>
+                <%= image_tag 'top-update-logo.png' %>
+            </div>
+            <hr>
+            <P name='text'>
+                今後もカラオケを楽しむことのできる機能を追加する予定です
+            </P>
+        </div>
+    </div>
+    <div class='button'>
+        <%= image_tag 'search-icon.png' %>
+        <%= link_to 'カラオケを検索する', '/search' %>
+    </div>
+    <p class='top-foot'>
+        <span>created by</span>
+        W-SHARE
+    </p>
+</div>

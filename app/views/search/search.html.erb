@@ -8,37 +8,39 @@
         <div class='search-content'>
             <p>料金体系</p>
             <div class="selector">
-                <%= f.radio_button :price, :student, class: 'radio-button'%>
-                <%= f.label :price, '学生', {value: :student, name: 'left'} %>
-                <%= f.radio_button :price, :adult, class: 'radio-button'%>
-                <%= f.label :price, '一般', {value: :adult, name: 'right'} %>
+                <%= f.radio_button :classification, :student, class: 'radio-button'%>
+                <%= f.label :classification, '学生', {value: :student, name: 'left'} %>
+                <%= f.radio_button :classification, :adult, class: 'radio-button'%>
+                <%= f.label :classification, '一般', {value: :adult, name: 'right'} %>
             </div>
         </div>
         <div class='search-content'>
             <p>開始時間</p>
             <div class="selector" name='time'>
-                <%= f.time_select :srtart %>
+                <%= f.number_field :begin_at_h, max: 23, min: 0%>
+                <%= f.number_field :begin_at_m, max: 59, min: 0%>
             </div>
         </div>
         <div class='search-content'>
             <p>利用時間</p>
             <div class="selector" name='time'>
-                <%= f.time_select :length, class: 'time-selector'%>
+                <%= f.number_field :length, class: 'time-input'%>
+                <span>分</span>
             </div>
         </div>
         <div class="search-content" name='last-content'>
             <p>人数</p>
             <div class="selector">
-                <%= f.radio_button :people, :solo, class: 'radio-button'%>
-                <%= f.label :people, '一人', {value: :solo, name: 'left'}%>
-                <%= f.radio_button :people, :group, class: 'radio-button' %>
-                <%= f.label :people, '複数', {value: :group, name: 'right'}%>
+                <%= f.radio_button :number, 1, class: 'radio-button'%>
+                <%= f.label :number, '一人', {value: 1, name: 'left'}%>
+                <%= f.radio_button :number, 2, class: 'radio-button' %>
+                <%= f.label :number, '複数', {value: 2, name: 'right'}%>
             </div>
         </div>
     </div>
     <div class='button'>
         <%= image_tag 'search-icon.png' %>
-        <%= f.submit 'この条件で検索'%>
+        <%= f.submit 'この条件で検索', class: 'submit-button'%>
     </div>
     <% end %>
 </div>

@@ -1,2 +1,112 @@
-<h1>Searchresult</h1>
-<p>Find me in app/views/search/result.html.erb</p>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#price-order").addClass('soart-button-active');
+        $('.distance').addClass('is-hidden')
+        $('#distance-order').click(function(){
+            $('.price').addClass("is-hidden");
+            $('.distance').removeClass("is-hidden");
+            $('#distance-order').addClass('soart-button-active');
+            $('#price-order').removeClass('soart-button-active');
+        });
+        $('#price-order').click(function(){
+            $('.price').removeClass('is-hidden');
+            $('.distance').addClass('is-hidden');
+            $('#price-order').addClass('soart-button-active');
+            $('#distance-order').removeClass('soart-button-active');
+        });
+        $('.result-container .result-content:nth-child(n + 6)').addClass('is-hidden');
+        $('.more-text').click(function(){
+            $('.result-container .result-content.is-hidden').slice(0, 5).removeClass('is-hidden');
+            if ($('.result-container .result-content.is-hidden').length == 0){
+                $('.more-text').hide();
+            }
+        });
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>検索結果</p>
+    </div>
+    <div class="soart-button">
+        <p id="price-order">料金順</p>
+        <p id="distance-order">距離順</p>
+    </div>
+    <div class="condition-container">
+        <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時、<%= @length_h%>時間、<%= @condition2%>」で検索したカラオケ情報</p>
+        <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
+    </div>
+    <div class="result-container price">
+        <% i=0%>
+        <% while i < @sortedArrayLength do%>
+            <div class="result-content">
+                <div class="result-left">
+                    <%= image_tag 'demo-bigecho.png' %>
+                    <p><%= @priceOrderArray[i][:name]%></p>
+                </div>
+                <div class="result-right">
+                    <div class="price-display">
+                        <p><%= @priceOrderArray[i][:price]%>円</p>
+                        <%= image_tag 'directions-icon.png' %>
+                    </div>
+                    <div class="other-info">
+                        <div class="other-info-above">
+                            <div class="each-info">
+                                <%= image_tag 'distance-icon.png' %>
+                                <p>200m</p>
+                            </div>
+                            <div class="each-info">
+                                <%= image_tag 'directions_walk-icon.png' %>
+                                <p>1min</p>
+                            </div>
+                        </div>
+                        <div class="other-info-below" >
+                            <%= image_tag 'call-icon.png' %>
+                            <p>070-3369-6667</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% i = i + 1%>
+        <% end %>
+    </div>
+    <div class="result-container distance">
+        <% i=0%>
+        <% while i < @sortedArrayLength do%>
+            <div class="result-content">
+                <div class="result-left">
+                    <%= image_tag 'demo-utahiroba.png' %>
+                    <p><%= @distanceOrderArray[i][:name]%></p>
+                </div>
+                <div class="result-right">
+                    <div class="price-display">
+                        <p><%= @distanceOrderArray[i][:price]%>円</p>
+                        <%= image_tag 'directions-icon.png' %>
+                    </div>
+                    <div class="other-info">
+                        <div class="other-info-above">
+                            <div class="each-info">
+                                <%= image_tag 'distance-icon.png' %>
+                                <p>200m</p>
+                            </div>
+                            <div class="each-info">
+                                <%= image_tag 'directions_walk-icon.png' %>
+                                <p>1min</p>
+                            </div>
+                        </div>
+                        <div class="other-info-below" >
+                            <%= image_tag 'call-icon.png' %>
+                            <p>070-3369-6667</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% i = i + 1%>
+        <% end %>
+    </div>
+    <p class="more-text">さらに表示</p>
+    <div class='button'>
+        <%= image_tag 'map-icon.png' %>
+        <%= link_to '地図で表示', '/map' %>
+    </div>
+</div>
