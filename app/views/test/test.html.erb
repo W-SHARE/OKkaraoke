@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.content').addClass('red')
+    });
+</script>
+<div class="container">
+    <% 12.times do |num| %>
+        <div class="content">
+            <%= num+1%>test
+        </div>
+    <% end%>
+    <div class="more">more</div>
+</div>

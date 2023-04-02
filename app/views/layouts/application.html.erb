@@ -11,8 +11,38 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
-
   <body>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#is-open').hide();
+        $('.navi').hide();
+        $('#is-close').click(function(){
+          $('#is-open').show();
+          $('#is-close').hide();
+          $('.navi').show();
+        });
+        $('#is-open').click(function(){
+          $('#is-open').hide();
+          $('#is-close').show();
+          $('.navi').hide();
+        });
+      });
+  </script>
+    <header>
+      <div class="hamburger-menu" id="is-open">
+        <%= image_tag 'hamburger-menu-cross.png'%>
+      </div>
+      <div class="hamburger-menu" id="is-close">
+        <%= image_tag 'hamburger-menu-icon.png'%>
+      </div>
+    </header>
+    <div class="navi">
+      <ul>
+        <p>メニュー</p>
+        <li><%= link_to 'トップページ', '/' %></li>
+        <li><%= link_to 'カラオケを検索', '/search' %></li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -1,10 +1,6 @@
 <div class='top-wrapper'>
-    <div class='button'>
-            <%= image_tag 'search-icon.png' %>
-            <%= link_to 'カラオケを検索する', '/search' %>
-    </div>
     <p class='version-name'>ver.1.0.0</p>
-    <%= image_tag 'top-logo.png' %>
+    <%= image_tag 'top-logo.png', class: 'hero-img' %>
     <div class='top-description'>
         <div class='top-description-content'>
             <div class='top-description-title'>
@@ -36,6 +32,10 @@
                 今後もカラオケを楽しむことのできる機能を追加する予定です
             </P>
         </div>
+    </div>
+    <div class='button'>
+        <%= image_tag 'search-icon.png' %>
+        <%= link_to 'カラオケを検索する', '/search' %>
     </div>
     <p class='top-foot'>
         <span>created by</span>

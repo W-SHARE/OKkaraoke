@@ -23,7 +23,8 @@
         <div class='search-content'>
             <p>利用時間</p>
             <div class="selector" name='time'>
-                <%= f.time_select :length, class: 'time-selector'%>
+                <%= f.number_field :length, class: 'time-input'%>
+                <span>分</span>
             </div>
         </div>
         <div class="search-content" name='last-content'>
@@ -38,7 +39,7 @@
     </div>
     <div class='button'>
         <%= image_tag 'search-icon.png' %>
-        <%= f.submit 'この条件で検索'%>
+        <%= f.submit 'この条件で検索', class: 'submit-button'%>
     </div>
     <% end %>
 </div>
