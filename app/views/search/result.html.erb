@@ -57,10 +57,22 @@
         currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
         currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
+        //現在地を中心に設定
         map.setView([currentLatitude, currentLongitude], 18);
             L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
             attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
         }).addTo(map);
+
+        //現在地にマーカーを付ける
+        let currentMarkerOption = {
+            radius: 13,
+            fillColor: "#4285F4",
+            color: "#FFFFFF",
+            fillOpacity: 1,
+            opacity: 1
+        };
+        currentMarker = L.circleMarker([currentLatitude, currentLongitude], currentMarkerOption);
+        currentMarker.addTo(map);
 
         let i = 0;
         let jsonArray = <%== JSON.dump(@array) %>;
