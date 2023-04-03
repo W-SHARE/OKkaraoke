@@ -49,8 +49,6 @@ class SearchController < ApplicationController
     while i < arrayLength do
       hash = Hash.new
       if result["values"][i][2] == classification and result["values"][i][3] == number and section == result['values'][i][5]
-        #id = result["values"][i][0]
-        #hash[:id] = id.to_i
         hash[:name] = result["values"][i][1]
         hash[:price] = result["values"][i][4].to_i * @length_h
 
