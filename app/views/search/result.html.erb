@@ -77,9 +77,10 @@
             longitudePin = jsonArray[i]["longitude"];
             price = jsonArray[i]["price"];
             distance = jsonArray[i]["distance"];
+            company = jsonArray[i]["company"];
             marker = L.marker([lantitudePin, longitudePin]);
             marker.addTo(map);
-            marker.bindPopup(`${price}円<br>${distance}m`,{autoClose:false});
+            marker.bindPopup(`<p>${price}円</p><div>${company}<br>${distance}m</div>`,{autoClose:false});
             i = i + 1;
         };
     });

@@ -81,6 +81,7 @@ class SearchController < ApplicationController
           else
             hash[:duration] = 1
           end
+          hash[:company] = result["values"][i][8]
           @array.push(hash)
         end
       end

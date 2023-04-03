@@ -107,3 +107,18 @@
 #closeMap{
     z-index: 999;
 }
+.leaflet-popup-content-wrapper{
+    padding: 0 !important;
+    border-radius: 5px !important;
+}
+.leaflet-popup-content {
+    margin: 0 !important;
+    padding: 8px;
+    border: solid 2px #F4E662;
+    border-radius: 5px;
+    text-align: center;
+}
+.leaflet-popup-content p{
+    font-size: 25px;
+    font-weight: bold;
+}
