@@ -83,7 +83,7 @@
     height: 17px;
     margin-left: 2px;
 }
-.other-info-below p{
+.other-info-below a{
     margin-left: 8px;
     font-size: 15px;
     color: #4285F4;
@@ -114,11 +114,14 @@
 .leaflet-popup-content {
     margin: 0 !important;
     padding: 8px;
-    border: solid 2px white;
+    border:#F4E662 solid 2px ;
     border-radius: 5px;
     text-align: center;
 }
 .leaflet-popup-content p{
     font-size: 25px;
     font-weight: bold;
+}
+.each-info a{
+    background-color: red;
 }
