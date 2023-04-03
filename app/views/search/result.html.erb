@@ -34,13 +34,34 @@
             $('header').removeClass('is-hidden');
         });
         let map = L.map('map');
-        let lantitude = '<%== JSON.dump(@lantitude) %>';
-        let longitude = '<%== JSON.dump(@longitude) %>';
-        map.setView([lantitude, longitude], 18);
+        //以下2行は現在地の緯度経度を入れる↓
+        let lantitudeHere = '<%== JSON.dump(@lantitude) %>';
+        let longitudeHere = '<%== JSON.dump(@longitude) %>';
+        //上は現在地の予定↑
+        map.setView([lantitudeHere, longitudeHere], 18);
             L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
             attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
         }).addTo(map);
-        let marker = L.marker([lantitude, longitude]).addTo(map);
+
+        let i = 0;
+        let jsonArray = <%== JSON.dump(@array) %>;
+        const length = <%== JSON.dump(@sortedArrayLength) %>;
+
+        let lantitudePin;
+        let longitudePin;
+        let price;
+        let id;
+        let marker;
+
+        while (i < length){
+            lantitudePin = jsonArray[i]["lantitude"];
+            longitudePin = jsonArray[i]["longitude"];
+            price = jsonArray[i]["price"];
+            marker = L.marker([lantitudePin, longitudePin]);
+            marker.addTo(map);
+            marker.bindPopup(`${price}円`,{autoClose:false});
+            i = i + 1;
+        };
     });
 </script>
 <div class='search-wrapper'>

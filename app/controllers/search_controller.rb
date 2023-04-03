@@ -42,6 +42,15 @@ class SearchController < ApplicationController
         hash[:id] = id.to_i
         hash[:name] = result["values"][i][1]
         hash[:price] = result["values"][i][4].to_i * @length_h
+        address = result["values"][i][7]
+        params = URI.encode_www_form({q: address})
+        uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{params}")
+        response = Net::HTTP.get_response(uri)
+        addressResult = JSON.parse(response.body)
+        lantitude = addressResult[0]["geometry"]["coordinates"][1]
+        longitude = addressResult[0]["geometry"]["coordinates"][0]
+        hash[:lantitude] = lantitude
+        hash[:longitude] = longitude
         @array.push(hash)
       end
       i = i + 1
@@ -50,6 +59,7 @@ class SearchController < ApplicationController
     @distanceOrderArray = @array.sort_by { |a| a[:id] }
     @sortedArrayLength = @array.length
 
+    # 以下は現在地を取得して緯度経度を渡す予定
     address = '東京都新宿区高田馬場４丁目７−５'
     @params = URI.encode_www_form({q: address})
     @uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{@params}")
