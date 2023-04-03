@@ -49,6 +49,14 @@ class SearchController < ApplicationController
     @priceOrderArray = @array.sort_by { |a| a[:price] }
     @distanceOrderArray = @array.sort_by { |a| a[:id] }
     @sortedArrayLength = @array.length
+
+    address = '東京都新宿区高田馬場４丁目７−５'
+    @params = URI.encode_www_form({q: address})
+    @uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{@params}")
+    @response = Net::HTTP.get_response(@uri)
+    @result = JSON.parse(@response.body)
+    @lantitude = @result[0]["geometry"]["coordinates"][1]
+    @longitude = @result[0]["geometry"]["coordinates"][0]
   end
 
   def map

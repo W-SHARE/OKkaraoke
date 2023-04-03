@@ -21,6 +21,26 @@
                 $('.more-text').hide();
             }
         });
+        $('.map-container').addClass('is-hidden');
+        $('#viewMap').click(function(){
+            $('.map-container').removeClass('is-hidden');
+            $('.search-wrapper').addClass('is-hidden');
+            $('header').addClass('is-hidden');
+            map.invalidateSize()
+        });
+        $('#closeMap').click(function(){
+            $('.map-container').addClass('is-hidden');
+            $('.search-wrapper').removeClass('is-hidden');
+            $('header').removeClass('is-hidden');
+        });
+        let map = L.map('map');
+        let lantitude = '<%== JSON.dump(@lantitude) %>';
+        let longitude = '<%== JSON.dump(@longitude) %>';
+        map.setView([lantitude, longitude], 18);
+            L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+            attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+        }).addTo(map);
+        let marker = L.marker([lantitude, longitude]).addTo(map);
     });
 </script>
 <div class='search-wrapper'>
@@ -107,6 +127,10 @@
     <p class="more-text">さらに表示</p>
     <div class='button'>
         <%= image_tag 'map-icon.png' %>
-        <%= link_to '地図で表示', '/map' %>
+        <p id="viewMap">地図で表示</p>
     </div>
+</div>
+<div class="map-container">
+    <p id="closeMap">マップを閉じる</p>
+    <div id="map"></div>
 </div>
