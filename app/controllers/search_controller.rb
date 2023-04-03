@@ -5,6 +5,7 @@ class SearchController < ApplicationController
 
   end
   def result
+    #spreadsheetから情報を取得
     uri = URI.parse("https://sheets.googleapis.com//v4/spreadsheets/1eworVB15Y_fZtzvWHPxBt_AWMZSByQecs9JM2vNnnCs/values/testing2nd?key=AIzaSyBqtRpLHwPEKyWtRoD_MvM7LdIutUPCjIc")
     response = Net::HTTP.get_response(uri)
     result = JSON.parse(response.body)
@@ -14,9 +15,9 @@ class SearchController < ApplicationController
     classification = params[:classification]
     length = params[:length].to_i
     number = params[:number]
-    @begin_at_h = params[:begin_at_h].to_i
-    begin_at_m = params[:begin_at_m].to_i
-    @length_h = length / 60
+    begin_at_h = params[:begin_at_h].to_i
+    begin_at_m = params[:begin_at_m].to_f
+    length_h = length / 60.to_f
 
     if classification == 'student'
       @condition1 = '学生'
@@ -29,7 +30,7 @@ class SearchController < ApplicationController
       @condition2 = '複数'
     end
 
-    if @begin_at_h >= 18
+    if begin_at_h >= 18
       section = 'night'
     else
       section = 'day'
@@ -50,7 +51,7 @@ class SearchController < ApplicationController
       hash = Hash.new
       if result["values"][i][2] == classification and result["values"][i][3] == number and section == result['values'][i][5]
         hash[:name] = result["values"][i][1]
-        hash[:price] = result["values"][i][4].to_i * @length_h
+        hash[:price] = (result["values"][i][4].to_i * length_h).to_i
 
         #住所から緯度経度を求める
         address = result["values"][i][7]
