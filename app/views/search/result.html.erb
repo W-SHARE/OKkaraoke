@@ -118,7 +118,7 @@
                             </div>
                             <div class="each-info">
                                 <%= image_tag 'directions_walk-icon.png' %>
-                                <p>1min</p>
+                                <p><%= @priceOrderArray[i][:duration]%>min</p>
                             </div>
                         </div>
                         <div class="other-info-below" >
@@ -152,7 +152,7 @@
                             </div>
                             <div class="each-info">
                                 <%= image_tag 'directions_walk-icon.png' %>
-                                <p>1min</p>
+                                <p><%= @distanceOrderArray[i][:duration]%>min</p>
                             </div>
                         </div>
                         <div class="other-info-below" >

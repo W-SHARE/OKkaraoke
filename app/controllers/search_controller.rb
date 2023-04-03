@@ -50,8 +50,6 @@ class SearchController < ApplicationController
     while i < arrayLength do
       hash = Hash.new
       if result["values"][i][2] == classification and result["values"][i][3] == number and section == result['values'][i][5]
-        hash[:name] = result["values"][i][1]
-        hash[:price] = (result["values"][i][4].to_i * length_h).to_i
 
         #住所から緯度経度を求める
         address = result["values"][i][7]
@@ -74,7 +72,15 @@ class SearchController < ApplicationController
 
         #1.2km以内の検索結果を配列に入れる
         if distance <= 1200
+          hash[:name] = result["values"][i][1]
+          hash[:price] = (result["values"][i][4].to_i * length_h).to_i
           hash[:distance] = distance
+          duration = distance / 80
+          if duration >= 1
+            hash[:duration] = duration
+          else
+            hash[:duration] = 1
+          end
           @array.push(hash)
         end
       end
