@@ -34,8 +34,9 @@ class SearchController < ApplicationController
     arrayLength = result['values'].length
     i = 1
     @array = Array.new
-    length_h = @length / 60.to_f
+    lengthHalfHour = @length / 30.to_f
 
+    #入力内容の代入
     if @classification == 'student'
       @condition1 = '学生'
     else
@@ -52,17 +53,6 @@ class SearchController < ApplicationController
     else
       section = 'day'
     end
-
-        # 以下は現在地を取得して緯度経度を渡す予定
-        #address = '東京都新宿区高田馬場４丁目７−５'
-        #params = URI.encode_www_form({q: address})
-        #uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{params}")
-        #response = Net::HTTP.get_response(uri)
-        #addressResult = JSON.parse(response.body)
-        #@currentLatitude = addressResult[0]["geometry"]["coordinates"][1]
-        #@currentLongitude = addressResult[0]["geometry"]["coordinates"][0]
-        #paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
-        #paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
 
     while i < arrayLength do
       hash = Hash.new
@@ -90,7 +80,7 @@ class SearchController < ApplicationController
         #1.2km以内の検索結果を配列に入れる
         if distance <= 1200
           hash[:name] = result["values"][i][1]
-          hash[:price] = (result["values"][i][4].to_i * length_h).to_i
+          hash[:price] = (result["values"][i][4].to_i * lengthHalfHour).to_i
           hash[:distance] = distance
           duration = distance / 80
           if duration >= 1
