@@ -95,6 +95,7 @@ class SearchController < ApplicationController
             hash[:duration] = 1
           end
           hash[:company] = result["values"][i][8]
+          hash[:phoneNumber] = result["values"][i][9]
           @array.push(hash)
         end
       end

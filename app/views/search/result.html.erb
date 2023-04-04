@@ -153,7 +153,7 @@
                         </div>
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
-                            <a href="tel:070-3369-6667">070-3369-6667</a>
+                            <%= link_to @priceOrderArray[i][:phoneNumber], "tel:" + @priceOrderArray[i][:phoneNumber] %>
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                         </div>
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
-                            <a href="tel:070-3369-6667">070-3369-6667</a>
+                            <a href="tel:<% @distanceOrderArray[i][:phoneNumber]%>"><%= @distanceOrderArray[i][:phoneNumber]%></a>
                         </div>
                     </div>
                 </div>
@@ -210,3 +210,4 @@
         <p>地図を閉じる</p>
     </div>
 </div>
+<%= @array%>
