@@ -90,6 +90,11 @@
         let price;
         let id;
         let marker;
+        let company;
+        let distance;
+        let phoneNumber;
+        let url;
+        let image;
 
         while (i < length){
             lantitudePin = jsonArray[i]["latitude"];
@@ -97,6 +102,8 @@
             price = jsonArray[i]["price"];
             distance = jsonArray[i]["distance"];
             company = jsonArray[i]["company"];
+            phoneNumber = jsonArray[i]["phoneNumber"];
+            url = jsonArray[i]["url"];
             marker = L.marker([lantitudePin, longitudePin]);
             marker.addTo(map);
             marker.bindPopup(
@@ -104,8 +111,8 @@
                 <div>
                     ${company}<br>
                     ${distance}m<br>
-                    <a href="tel:070-3369-6667">070-3369-6667</a><br>
-                    <a href="https://goo.gl/maps/i6PBYwNAaywrJGvu7">GoogleMapで表示</a>
+                    <a href = "tel:${phoneNumber}">${phoneNumber}</a><br>
+                    <a href="${url}">GoogleMapで表示</a>
                 </div>`,
                 {autoClose:false});
             i = i + 1;
@@ -130,15 +137,13 @@
         <% while i < @sortedArrayLength do%>
             <div class="result-content">
                 <div class="result-left">
-                    <%= image_tag 'bigecho.png' %>
+                    <%= image_tag @priceOrderArray[i][:image] %>
                     <p><%= @priceOrderArray[i][:name]%></p>
                 </div>
                 <div class="result-right">
                     <div class="price-display">
                         <p><%= @priceOrderArray[i][:price]%>円</p>
-                        <a href="https://goo.gl/maps/i6PBYwNAaywrJGvu7">
-                            <%= image_tag 'directions-icon.png' %>
-                        </a>
+                        <%= link_to image_tag('directions-icon.png'), @priceOrderArray[i][:url]%>
                     </div>
                     <div class="other-info">
                         <div class="other-info-above">
@@ -166,15 +171,13 @@
         <% while i < @sortedArrayLength do%>
             <div class="result-content">
                 <div class="result-left">
-                    <%= image_tag 'utahiroba.png' %>
+                    <%= image_tag @distanceOrderArray[i][:image] %>
                     <p><%= @distanceOrderArray[i][:name]%></p>
                 </div>
                 <div class="result-right">
                     <div class="price-display">
                         <p><%= @distanceOrderArray[i][:price]%>円</p>
-                        <a href="https://goo.gl/maps/i6PBYwNAaywrJGvu7">
-                            <%= image_tag 'directions-icon.png' %>
-                        </a>
+                        <%= link_to image_tag('directions-icon.png'), @distanceOrderArray[i][:url]%>
                     </div>
                     <div class="other-info">
                         <div class="other-info-above">
@@ -189,7 +192,7 @@
                         </div>
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
-                            <a href="tel:<% @distanceOrderArray[i][:phoneNumber]%>"><%= @distanceOrderArray[i][:phoneNumber]%></a>
+                            <%= link_to @distanceOrderArray[i][:phoneNumber], "tel:" + @distanceOrderArray[i][:phoneNumber] %>
                         </div>
                     </div>
                 </div>
@@ -210,4 +213,3 @@
         <p>地図を閉じる</p>
     </div>
 </div>
-<%= @array%>
