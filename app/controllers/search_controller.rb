@@ -16,8 +16,8 @@ class SearchController < ApplicationController
     @number = params[:number]
     @begin_at_h = params[:begin_at_h].to_i
     @begin_at_m = params[:begin_at_m].to_i
-    @currentLatitude = params[:currentLatitude];
-    @currentLongitude = params[:currentLongitude];
+    @currentLatitude = params[:currentLatitude].to_f
+    @currentLongitude = params[:currentLongitude].to_f
     paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
     paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
 
