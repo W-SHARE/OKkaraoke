@@ -1,10 +1,28 @@
 class SearchController < ApplicationController
   require 'net/http'
+  require 'date'
 
   def search
-
+    currentTime = Time.now
+    @begin_at_h = currentTime.hour
+    @begin_at_m = currentTime.min
+    @length = 60
   end
+
   def result
+    #入力情報の取得
+    @classification = params[:classification]
+    @length = params[:length].to_i
+    @number = params[:number]
+    @begin_at_h = params[:begin_at_h].to_i
+    @begin_at_m = params[:begin_at_m].to_i
+
+    #バリデーション
+    if @classification == nil or @length == nil or @number == nil or @begin_at_h == nil or @begin_at_m == nil
+      @validateMessage = "項目を全て入力してください"
+      render("search/search")
+    end
+
     #spreadsheetから情報を取得
     uri = URI.parse("https://sheets.googleapis.com//v4/spreadsheets/1eworVB15Y_fZtzvWHPxBt_AWMZSByQecs9JM2vNnnCs/values/testing2nd?key=AIzaSyBqtRpLHwPEKyWtRoD_MvM7LdIutUPCjIc")
     response = Net::HTTP.get_response(uri)
@@ -12,25 +30,20 @@ class SearchController < ApplicationController
     arrayLength = result['values'].length
     i = 1
     @array = Array.new
-    classification = params[:classification]
-    length = params[:length].to_i
-    number = params[:number]
-    begin_at_h = params[:begin_at_h].to_i
-    begin_at_m = params[:begin_at_m].to_f
-    length_h = length / 60.to_f
+    length_h = @length / 60.to_f
 
-    if classification == 'student'
+    if @classification == 'student'
       @condition1 = '学生'
     else
       @condition1 = '一般'
     end
-    if number == 1
+    if @number == 1
       @condition2 = '一人'
     else
       @condition2 = '複数'
     end
 
-    if begin_at_h >= 18
+    if @begin_at_h >= 18
       section = 'night'
     else
       section = 'day'
@@ -49,7 +62,7 @@ class SearchController < ApplicationController
 
     while i < arrayLength do
       hash = Hash.new
-      if result["values"][i][2] == classification and result["values"][i][3] == number and section == result['values'][i][5]
+      if result["values"][i][2] == @classification and result["values"][i][3] == @number and section == result['values'][i][5]
 
         #住所から緯度経度を求める
         address = result["values"][i][7]

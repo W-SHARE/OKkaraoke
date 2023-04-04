@@ -94,7 +94,7 @@
     opacity: 0.4;
 }
 .selector p{
-    opacity: 40%;
+    opacity: 50%;
     width: 50%;
     text-align: center;
     line-height: 33px;
@@ -107,4 +107,9 @@
 }
 #map{
     height: 100%;
+}
+.searchValidateMessage{
+    text-align: center;
+    margin-top: 20px;
+    color: #CD5240;
 }

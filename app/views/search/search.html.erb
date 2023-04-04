@@ -3,12 +3,15 @@
         <%= image_tag 'top-logo.png' %>
         <p>検索条件</p>
     </div>
-    <%= form_with url: result_path, method: :get, local: true do |f| %>
+    <p class="searchValidateMessage">
+        <%= @validateMessage%>
+    </p>
+    <%= form_with url: result_path, method: :get, local: true, id: "searchForm" do |f| %>
     <div class='search-container'>
         <div class='search-content'>
-            <p>料金体系</p>
+            <p id="test">料金体系</p>
             <div class="selector">
-                <%= f.radio_button :classification, :student, class: 'radio-button'%>
+                <%= f.radio_button :classification, :student, class: 'radio-button', checked: true%>
                 <%= f.label :classification, '学生', {value: :student, name: 'left'} %>
                 <%= f.radio_button :classification, :adult, class: 'radio-button'%>
                 <%= f.label :classification, '一般', {value: :adult, name: 'right'} %>
@@ -17,23 +20,23 @@
         <div class='search-content'>
             <p>開始時間</p>
             <div class="selector" name='time'>
-                <%= f.number_field :begin_at_h, max: 23, min: 0, class: 'time-input'%>
+                <%= f.number_field :begin_at_h, max: 23, min: 0, class: 'time-input', value: @begin_at_h %>
                 <p>時</p>
-                <%= f.number_field :begin_at_m, max: 59, min: 0, class: 'time-input'%>
+                <%= f.number_field :begin_at_m, max: 59, min: 0, class: 'time-input', value: @begin_at_m%>
                 <p>分</p>
             </div>
         </div>
         <div class='search-content'>
             <p>利用時間</p>
             <div class="selector" name='time'>
-                <%= f.number_field :length, class: 'time-input'%>
+                <%= f.number_field :length, class: 'time-input', value: @length%>
                 <p>分</p>
             </div>
         </div>
         <div class="search-content" name='last-content'>
             <p>人数</p>
             <div class="selector">
-                <%= f.radio_button :number, 1, class: 'radio-button'%>
+                <%= f.radio_button :number, 1, class: 'radio-button', checked: true%>
                 <%= f.label :number, '一人', {value: 1, name: 'left'}%>
                 <%= f.radio_button :number, 2, class: 'radio-button' %>
                 <%= f.label :number, '複数', {value: 2, name: 'right'}%>
