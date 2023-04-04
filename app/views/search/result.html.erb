@@ -44,18 +44,18 @@
         let map = L.map('map');
 
         //ユーザーの位置情報の取得
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        function successCallback(position){
-            let currentLatitude = position.coords.latitude;
-            let currentLongitude = position.coords.longitude;
-        };
-        function errorCallback(error){
-            alert("something went wrong, we couldn't get your current location")
-        };
+        //navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        //function successCallback(position){
+        //    let currentLatitude = position.coords.latitude;
+        //    let currentLongitude = position.coords.longitude;
+        //};
+        //function errorCallback(error){
+        //    alert("something went wrong, we couldn't get your current location")
+        //};
 
         //日本の位置情報を仮で代入
-        currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
-        currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
+        //currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
+        //currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
         //現在地を中心に設定
         map.setView([currentLatitude, currentLongitude], 18);

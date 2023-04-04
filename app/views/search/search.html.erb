@@ -1,3 +1,16 @@
+<script type="text/javascript">
+        //ユーザーの位置情報の取得
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        function successCallback(position){
+            let currentLatitude = position.coords.latitude;
+            let currentLongitude = position.coords.longitude;
+            document.getElementById('currentLatitude').value = `${currentLatitude}`;
+            document.getElementById('currentLongitude').value = `${currentLongitude}`;
+        };
+        function errorCallback(error){
+            alert("something went wrong, we couldn't get your current location")
+        };
+</script>
 <div class='search-wrapper'>
     <div class='page-header'>
         <%= image_tag 'top-logo.png' %>
@@ -43,8 +56,10 @@
             </div>
         </div>
     </div>
+    <%= f.text_field :currentLatitude, value: "こここだよ"%>
+    <%= f.text_field :currentLongitude, value: "こここだよ"%>
     <div class='button'>
-        <%= image_tag 'search-icon.png' %>
+        <%= image_tag 'search-icon.png'%>
         <%= f.submit 'この条件で検索', class: 'submit-button'%>
     </div>
     <% end %>

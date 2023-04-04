@@ -16,6 +16,10 @@ class SearchController < ApplicationController
     @number = params[:number]
     @begin_at_h = params[:begin_at_h].to_i
     @begin_at_m = params[:begin_at_m].to_i
+    @currentLatitude = params[:currentLatitude];
+    @currentLongitude = params[:currentLongitude];
+    paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
+    paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
 
     #バリデーション
     if @classification == nil or @length == nil or @number == nil or @begin_at_h == nil or @begin_at_m == nil
@@ -50,15 +54,15 @@ class SearchController < ApplicationController
     end
 
         # 以下は現在地を取得して緯度経度を渡す予定
-        address = '東京都新宿区高田馬場４丁目７−５'
-        params = URI.encode_www_form({q: address})
-        uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{params}")
-        response = Net::HTTP.get_response(uri)
-        addressResult = JSON.parse(response.body)
-        @currentLatitude = addressResult[0]["geometry"]["coordinates"][1]
-        @currentLongitude = addressResult[0]["geometry"]["coordinates"][0]
-        paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
-        paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
+        #address = '東京都新宿区高田馬場４丁目７−５'
+        #params = URI.encode_www_form({q: address})
+        #uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{params}")
+        #response = Net::HTTP.get_response(uri)
+        #addressResult = JSON.parse(response.body)
+        #@currentLatitude = addressResult[0]["geometry"]["coordinates"][1]
+        #@currentLongitude = addressResult[0]["geometry"]["coordinates"][0]
+        #paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
+        #paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
 
     while i < arrayLength do
       hash = Hash.new
