@@ -4,8 +4,8 @@ class SearchController < ApplicationController
 
   def search
     currentTime = Time.now
-    @begin_at_h = currentTime.hour
-    @begin_at_m = currentTime.min
+    begin_at_h = currentTime.hour
+    begin_at_m = currentTime.min
     @length = 60
   end
 
@@ -14,15 +14,15 @@ class SearchController < ApplicationController
     @classification = params[:classification]
     @length = params[:length].to_i
     @number = params[:number]
-    @begin_at_h = params[:begin_at_h].to_i
-    @begin_at_m = params[:begin_at_m].to_i
+    begin_at_h = params[:begin_at_h].to_i
+    begin_at_m = params[:begin_at_m].to_i
     @currentLatitude = params[:currentLatitude].to_f
     @currentLongitude = params[:currentLongitude].to_f
     paramsLatitude1 = URI.encode_www_form({latitude1: @currentLatitude})
     paramsLongitude1 = URI.encode_www_form({longitude1: @currentLongitude})
 
     #バリデーション
-    if @classification == nil or @length == nil or @number == nil or @begin_at_h == nil or @begin_at_m == nil
+    if @classification == nil or @length == nil or @number == nil or begin_at_h == nil or begin_at_m == nil
       @validateMessage = "項目を全て入力してください"
       render("search/search")
     end
@@ -48,7 +48,7 @@ class SearchController < ApplicationController
       @condition2 = '複数'
     end
 
-    if @begin_at_h >= 18
+    if begin_at_h >= 18
       section = 'night'
     else
       section = 'day'
@@ -98,7 +98,7 @@ class SearchController < ApplicationController
       i = i + 1
     end
     @priceOrderArray = @array.sort_by { |a| a[:price] }
-    @distanceOrderArray = @array.sort_by { |a| a[:distance] }
+    distanceOrderArray = @array.sort_by { |a| a[:distance] }
     @sortedArrayLength = @array.length
   end
 end
