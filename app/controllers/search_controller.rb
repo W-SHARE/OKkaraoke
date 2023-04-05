@@ -14,8 +14,8 @@ class SearchController < ApplicationController
     length = params[:length].to_i
     @begin_at_h = params[:begin_at_h].to_i
     @begin_at_m = params[:begin_at_m].to_i
-    currentLatitude = params[:currentLatitude].to_f
-    currentLongitude = params[:currentLongitude].to_f
+    @currentLatitude = params[:currentLatitude].to_f
+    @currentLongitude = params[:currentLongitude].to_f
 
     if classification == "student"
       @condition1 = "学生"
@@ -24,8 +24,8 @@ class SearchController < ApplicationController
     end
 
     #テスト用に現在地を手動で入力するのであればこちらに入力
-    @currentLatitude = 35.713284
-    @currentLongitude = 139.704939
+    #@currentLatitude = 35.713284
+    #@currentLongitude = 139.704939
 
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
