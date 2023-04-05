@@ -43,17 +43,7 @@
         });
         let map = L.map('map');
 
-        //ユーザーの位置情報の取得
-        //navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        //function successCallback(position){
-        //    let currentLatitude = position.coords.latitude;
-        //    let currentLongitude = position.coords.longitude;
-        //};
-        //function errorCallback(error){
-        //    alert("something went wrong, we couldn't get your current location")
-        //};
-
-        //日本の位置情報を仮で代入
+        //現在地を入力
         currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
         currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
@@ -65,7 +55,7 @@
 
         //半径1250mの円を描く
         let borderCircle = L.circle([currentLatitude, currentLongitude],{
-            radius: 625,
+            radius: 1250,
             color: "#4285F4"
         });
         borderCircle.addTo(map);
@@ -85,7 +75,7 @@
         let jsonArray = <%== JSON.dump(@array) %>;
         const length = <%== JSON.dump(@sortedArrayLength) %>;
 
-        let lantitudePin;
+        let latitudePin;
         let longitudePin;
         let price;
         let id;
@@ -97,14 +87,14 @@
         let image;
 
         while (i < length){
-            lantitudePin = jsonArray[i]["latitude"];
+            latitudePin = jsonArray[i]["latitude"];
             longitudePin = jsonArray[i]["longitude"];
             price = jsonArray[i]["price"];
             distance = jsonArray[i]["distance"];
             company = jsonArray[i]["company"];
             phoneNumber = jsonArray[i]["phoneNumber"];
             url = jsonArray[i]["url"];
-            marker = L.marker([lantitudePin, longitudePin]);
+            marker = L.marker([latitudePin, longitudePin]);
             marker.addTo(map);
             marker.bindPopup(
                 `<p>${price}円</p>
@@ -129,7 +119,9 @@
         <p id="distance-order">距離順</p>
     </div>
     <div class="condition-container">
-        <p class="main-condition">「<%= @condition1%>、<%= begin_at_h%>時、<%= @length_h%>時間、<%= @condition2%>」で検索したカラオケ情報</p>
+
+        <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時<%= @begin_at_m%>分開始、<%= (@length_h * 30).to_i%>分間利用」で検索したカラオケ情報</p>
+
         <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
     </div>
     <div class="result-container price">
