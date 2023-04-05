@@ -33,9 +33,9 @@
         <div class='search-content'>
             <p>開始時間</p>
             <div class="selector" name='time'>
-                <%= f.number_field :begin_at_h, max: 23, min: 0, class: 'time-input', value: begin_at_h %>
+                <%= f.number_field :begin_at_h, max: 23, min: 0, class: 'time-input', value: @begin_at_h %>
                 <p>時</p>
-                <%= f.number_field :begin_at_m, max: 59, min: 0, class: 'time-input', value: begin_at_m%>
+                <%= f.number_field :begin_at_m, max: 59, min: 0, class: 'time-input', value: @begin_at_m%>
                 <p>分</p>
             </div>
         </div>
