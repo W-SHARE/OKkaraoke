@@ -4,16 +4,19 @@ class SearchController < ApplicationController
 
   def search
     currentTime = Time.now
+
     @begin_at_h = currentTime.hour
     @begin_at_m = currentTime.min
   end
 
   def result
     #入力情報の取得
+
     classification = params[:classification]
     length = params[:length].to_i
     @begin_at_h = params[:begin_at_h].to_i
     @begin_at_m = params[:begin_at_m].to_i
+
     @currentLatitude = params[:currentLatitude].to_f
     @currentLongitude = params[:currentLongitude].to_f
 
@@ -36,7 +39,9 @@ class SearchController < ApplicationController
     day = Date.today.wday
 
     #バリデーション
+
     if classification == nil or length == nil or @begin_at_h == nil or @begin_at_m == nil #or @number = nil
+
       @validateMessage = "項目を全て入力してください"
       render("search/search")
     end
@@ -59,11 +64,13 @@ class SearchController < ApplicationController
     length60ary = length / 60.to_f
     @length_h = length60ary
 
+
     #繰り返し処理に必要な変数の宣言
     #arrayLngthハSpreadsheetでデータの入っている行数を示す
     arrayLength = resultPage1["values"].length
     #Spreadsheetで必要な情報が6行目以降なので6
     i = 5
+
 
     #検索結果を格納する繰り返し処理
     while i < arrayLength do
