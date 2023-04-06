@@ -13,7 +13,7 @@ class SearchController < ApplicationController
     #入力情報の取得
 
     classification = params[:classification]
-    length = params[:length].to_i
+    @length = params[:length].to_i
     @begin_at_h = params[:begin_at_h].to_i
     @begin_at_m = params[:begin_at_m].to_i
 
@@ -38,14 +38,6 @@ class SearchController < ApplicationController
     #整数                      0         1        2        3          4          5        6
     day = Date.today.wday
 
-    #バリデーション
-
-    if classification == nil or length == nil or @begin_at_h == nil or @begin_at_m == nil #or @number = nil
-
-      @validateMessage = "項目を全て入力してください"
-      render("search/search")
-    end
-
       #Spreadsheetからpage1のインポート
       uri = URI.parse("https://sheets.googleapis.com//v4/spreadsheets/1eworVB15Y_fZtzvWHPxBt_AWMZSByQecs9JM2vNnnCs/values/page1?key=AIzaSyBqtRpLHwPEKyWtRoD_MvM7LdIutUPCjIc")
       response = Net::HTTP.get_response(uri)
@@ -60,9 +52,8 @@ class SearchController < ApplicationController
     @array = Array.new
 
     #利用時間を30進法と60進法で表記
-    length30ary = length / 30
-    length60ary = length / 60.to_f
-    @length_h = length60ary
+    length30ary = @length / 30
+    length60ary = @length / 60.to_f
 
 
     #繰り返し処理に必要な変数の宣言
@@ -103,7 +94,7 @@ class SearchController < ApplicationController
         if @begin_at_h < 18 #昼
           if 1 <= day and day<= 5 #平日
             if classification == 'student' #学生
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][10] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][15].to_i + 380
                 else #飲み放題制
@@ -117,7 +108,7 @@ class SearchController < ApplicationController
                 end
               end
             else #一般
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][11] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][16].to_i + 380
                 else #飲み放題制
@@ -133,7 +124,7 @@ class SearchController < ApplicationController
             end
           else #休日
             if classification == 'student' #学生
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][17].to_i + 380
                 else #飲み放題制
@@ -147,7 +138,7 @@ class SearchController < ApplicationController
                 end
               end
             else #一般
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][13] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][18].to_i + 380
                 else #飲み放題制
@@ -165,7 +156,7 @@ class SearchController < ApplicationController
         else #夜
           if 1 <= day and day <= 5 #平日
             if classification == 'student' #学生
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][10] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][19].to_i + 380
                 else #飲み放題制
@@ -179,7 +170,7 @@ class SearchController < ApplicationController
                 end
               end
             else #一般
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][11] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][20].to_i + 380
                 else #飲み放題制
