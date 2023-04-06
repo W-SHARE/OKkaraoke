@@ -44,7 +44,7 @@
             <div class="selector" name='time'>
                 <%= f.select :length, [
                     ["30分",30],
-                    ["90分",60],
+                    ["60分",60],
                     ["90分",90],
                     ["120分",120],
                     ["150分",150],
@@ -52,6 +52,11 @@
                 ], class: 'time-input', value: 30%>
             </div>
         </div>
+    </div>
+    <div class="notificationContainer">
+        <p>※ワンドリンク制がある場合、ワンドリンク380円として計算します。</p>
+        <p>※該当プランが複数ある場合、最も安いプランの価格を表示します。</p>
+        <p>※学生を選択した場合、会員料金と学生料金のうち、より安い価格を表示します。</p>
     </div>
     <%= f.text_field :currentLatitude, value: "こここだよ"%>
     <%= f.text_field :currentLongitude, value: "こここだよ"%>
@@ -61,5 +66,3 @@
     </div>
     <% end %>
 </div>
-<%= @length%>
-<%= @spreadsheetDataImportTest%>
