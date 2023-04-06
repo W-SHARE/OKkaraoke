@@ -120,7 +120,7 @@
     </div>
     <div class="condition-container">
 
-        <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時<%= @begin_at_m%>分開始、<%= (@length_h * 30).to_i%>分間利用」で検索したカラオケ情報</p>
+        <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時<%= @begin_at_m%>分開始、<%= @length%>分間利用」で検索したカラオケ情報</p>
 
         <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
     </div>
@@ -163,28 +163,28 @@
         <% while i < @sortedArrayLength do%>
             <div class="result-content">
                 <div class="result-left">
-                    <%= image_tag distanceOrderArray[i][:image] %>
-                    <p><%= distanceOrderArray[i][:name]%></p>
+                    <%= image_tag @distanceOrderArray[i][:image] %>
+                    <p><%= @distanceOrderArray[i][:name]%></p>
                 </div>
                 <div class="result-right">
                     <div class="price-display">
-                        <p><%= distanceOrderArray[i][:price]%>円</p>
-                        <%= link_to image_tag('directions-icon.png'), distanceOrderArray[i][:url]%>
+                        <p><%= @distanceOrderArray[i][:price]%>円</p>
+                        <%= link_to image_tag('directions-icon.png'), @distanceOrderArray[i][:url]%>
                     </div>
                     <div class="other-info">
                         <div class="other-info-above">
                             <div class="each-info">
                                 <%= image_tag 'distance-icon.png' %>
-                                <p><%= distanceOrderArray[i][:distance]%>m</p>
+                                <p><%= @distanceOrderArray[i][:distance]%>m</p>
                             </div>
                             <div class="each-info">
                                 <%= image_tag 'directions_walk-icon.png' %>
-                                <p><%= distanceOrderArray[i][:duration]%>min</p>
+                                <p><%= @distanceOrderArray[i][:duration]%>min</p>
                             </div>
                         </div>
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
-                            <%= link_to distanceOrderArray[i][:phoneNumber], "tel:" + distanceOrderArray[i][:phoneNumber] %>
+                            <%= link_to @distanceOrderArray[i][:phoneNumber], "tel:" + @distanceOrderArray[i][:phoneNumber] %>
                         </div>
                     </div>
                 </div>
