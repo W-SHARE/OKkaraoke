@@ -8,6 +8,16 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function() {
+
+        $(".iconDescription").hide();
+        $(".supportIcon").hover(
+            function(){
+                $(".iconDescription").fadeIn(500);
+            },
+            function(){
+                $(".iconDescription").fadeOut(500);
+            });
+
         $("#price-order").addClass('soart-button-active');
         $('.distance').addClass('is-hidden')
         $('#distance-order').click(function(){
@@ -41,6 +51,7 @@
             $('.search-wrapper').removeClass('is-hidden');
             $('header').removeClass('is-hidden');
         });
+
         let map = L.map('map');
 
         //現在地を入力
@@ -48,14 +59,14 @@
         let currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
         //現在地を中心に設定
-        map.setView([currentLatitude, currentLongitude], 18);
+        map.setView([currentLatitude, currentLongitude], 16);
             L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
             attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
         }).addTo(map);
 
         //半径1250mの円を描く
         let borderCircle = L.circle([currentLatitude, currentLongitude],{
-            radius: 1250,
+            radius: 650,
             color: "#4285F4"
         });
         borderCircle.addTo(map);
@@ -83,7 +94,7 @@
         let company;
         let distance;
         let phoneNumber;
-        let url;
+        let url
         let image;
 
         while (i < length){
@@ -94,12 +105,13 @@
             company = jsonArray[i]["company"];
             phoneNumber = jsonArray[i]["phoneNumber"];
             url = jsonArray[i]["url"];
+            image = jsonArray[i]["image"];
             marker = L.marker([latitudePin, longitudePin]);
             marker.addTo(map);
             marker.bindPopup(
-                `<p>${price}円</p>
+                `<img src="/assets/${image}">
+                <p>${price}円</p>
                 <div>
-                    ${company}<br>
                     ${distance}m<br>
                     <a href = "tel:${phoneNumber}">${phoneNumber}</a><br>
                     <a href="${url}">GoogleMapで表示</a>
@@ -122,7 +134,21 @@
 
         <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時<%= @begin_at_m%>分開始、<%= @length%>分間利用」で検索したカラオケ情報</p>
 
-        <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
+        <div class="sub-condition-container">
+            <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
+            <%= image_tag "resultInfoSupport.png", class: "supportIcon"%>
+            <div class="iconDescription">
+                <%= image_tag "resultInfoDay"%><span>表示料金が昼料金であることを示します。</span><br>
+                <%= image_tag "resultInfoNight"%><span>表示料金が夜料金であることを示します。</span><br>
+                <%= image_tag "resultInfoHoliday"%><span>表示料金が休日・祝日料金であることを示します。</span><br>
+                <%= image_tag "resultInfoOneDrink"%><span>ワンドリンク制での価格であることを示します。</span><br>
+                <%= image_tag "resultInfoMulti"%><span>昼料金と夜料金の時間帯を股いでいるため、昼料金での計算結果を表示しています。</span><br>
+                <%= image_tag "resultInfoClosed"%><span>利用時間中に店舗が閉店する可能性があります。</span><br>
+                <%= image_tag "resultInfoYet"%><span>まだ店舗が開店していない可能性があります。</span><br>
+                <%= image_tag "resultInfoAlone"%><span>表示料金に追加でヒトカラ料金を支払う必要があります。</span><br>
+                <%= image_tag "resultInfoFreeTime"%><span>表示料金がフリータイムでの価格であることを示します。</span>
+            </div>
+        </div>
     </div>
     <div class="result-container price">
         <% i=0%>
@@ -151,6 +177,35 @@
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
                             <%= link_to @priceOrderArray[i][:phoneNumber], "tel:" + @priceOrderArray[i][:phoneNumber] %>
+                        </div>
+                        <div class="result-info-icons">
+                            <% if @priceOrderArray[i][:timeZone] == "day"%>
+                                <%= image_tag "resultInfoDay"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:timeZone] == "night"%>
+                                <%= image_tag "resultInfoNight"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:holiday]%>
+                                <%= image_tag "resultInfoHoliday"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:oneDrink]%>
+                                <%= image_tag "resultInfoOneDrink"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:multiTimeZone]%>
+                                <%= image_tag "resultInfoMulti"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:closeSoon]%>
+                                <%= image_tag "resultInfoClosed"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:beforeOpen]%>
+                                <%= image_tag "resultInfoYet"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:alone]%>
+                                <%= image_tag "resultInfoAlone"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:freeTime]%>
+                                <%= image_tag "resultInfoFreeTime"%>
+                            <% end%>
                         </div>
                     </div>
                 </div>
@@ -185,6 +240,35 @@
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
                             <%= link_to @distanceOrderArray[i][:phoneNumber], "tel:" + @distanceOrderArray[i][:phoneNumber] %>
+                        </div>
+                        <div class="result-info-icons">
+                            <% if @distanceOrderArray[i][:timeZone] == "day"%>
+                                <%= image_tag "resultInfoDay"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:timeZone] == "night"%>
+                                <%= image_tag "resultInfoNight"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:holiday]%>
+                                <%= image_tag "resultInfoHoliday"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:oneDrink]%>
+                                <%= image_tag "resultInfoOneDrink"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:multiTimeZone]%>
+                                <%= image_tag "resultInfoMulti"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:closeSoon]%>
+                                <%= image_tag "resultInfoClosed"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:beforeOpen]%>
+                                <%= image_tag "resultInfoYet"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:alone]%>
+                                <%= image_tag "resultInfoAlone"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:freeTime]%>
+                                <%= image_tag "resultInfoFreeTime"%>
+                            <% end%>
                         </div>
                     </div>
                 </div>

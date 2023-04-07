@@ -4,13 +4,13 @@
         $(".informationContentCloser").hide();
         $(".informationContentOpner").click(function(){
             $this = $(this);
-            $this.parent().next().show();
+            $this.parent().next().slideDown();
             $this.siblings("img").show();
             $this.hide();
         });
         $(".informationContentCloser").click(function(){
             $this = $(this);
-            $this.parent().next().hide();
+            $this.parent().next().slideUp();
             $this.siblings("img").show();
             $this.hide();
         });

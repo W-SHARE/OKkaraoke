@@ -79,3 +79,6 @@ gem 'net-smtp'
 group :production do
   gem 'pg'
 end
+
+gem 'meta-tags'
+gem 'sitemap_generator'

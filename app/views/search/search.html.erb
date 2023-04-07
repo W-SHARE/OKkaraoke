@@ -8,7 +8,7 @@
             document.getElementById('currentLongitude').value = `${currentLongitude}`;
         };
         function errorCallback(error){
-            alert("something went wrong, we couldn't get your current location")
+            alert("位置情報の取得を許可してください。")
         };
 </script>
 <div class='search-wrapper'>
@@ -57,6 +57,7 @@
         <p>※ワンドリンク制がある場合、ワンドリンク380円として計算します。</p>
         <p>※該当プランが複数ある場合、最も安いプランの価格を表示します。</p>
         <p>※学生を選択した場合、会員料金と学生料金のうち、より安い価格を表示します。</p>
+        <p>※現在地から半径 600m 以内の検索結果を表示します。</p>
     </div>
     <%= f.text_field :currentLatitude, value: "こここだよ"%>
     <%= f.text_field :currentLongitude, value: "こここだよ"%>

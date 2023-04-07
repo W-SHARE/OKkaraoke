@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Okkaraoke</title>
+    <title>OKカラオケ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
 
     <%= favicon_link_tag 'favicon.ico' %>
-    <link href="<%= image_path("iosHomeIcon.png") %>" rel="icon" sizes="192x192" type="image/png" />
-    <link href="<%= image_path("iosHomeIcon.png") %>" rel="apple-touch-icon" sizes="180x180" type="image/png" />
+    <%= favicon_link_tag 'iosHomeIcon.png', rel: "android-touch-icon", size: "192x192", type: "image/png"%>
+    <%= favicon_link_tag 'iosHomeIcon.png', rel: "ios-touch-icon", size: "180x180", type: "image/png"%>
+
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+    <%= display_meta_tags(default_meta_tags) %>
 
   </head>
   <body>
@@ -26,16 +29,24 @@
         $('#is-close').click(function(){
           $('#is-open').show();
           $('#is-close').hide();
-          $('.navi').show();
+          $('.navi').slideDown();
         });
         $('#is-open').click(function(){
           $('#is-open').hide();
           $('#is-close').show();
-          $('.navi').hide();
+          $('.navi').slideUp();
         });
       });
   </script>
     <header>
+    <div class="versionSnsContainer">
+        <p class='version-name'>ver.1.2.1</p>
+      <div class="snsIcons">
+          <a class="fab fa-twitter fa-2x" href="https://twitter.com/waseda_share"></a>
+          <a class="fa-brands fa-instagram fa-2x" href="https://www.instagram.com/wshare1122"></a>
+          <span>Follow and Share Us!!</span>
+      </div>
+    </div>
       <div class="hamburger-menu" id="is-open">
         <%= image_tag 'hamburger-menu-cross.png'%>
       </div>
@@ -49,7 +60,7 @@
         <li><%= link_to 'トップページ', '/' %></li>
         <li><%= link_to 'カラオケを検索', '/search' %></li>
         <li><%= link_to 'お知らせ', '/information' %></li>
-        <li><%= link_to 'ご意見箱', '/contact' %></li>
+        <!--<li><%= link_to 'ご意見箱', '/contact' %></li>-->
       </ul>
     </div>
     <%= yield %>

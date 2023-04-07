@@ -113,6 +113,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
@@ -186,6 +188,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -235,6 +239,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  meta-tags
   net-imap
   net-pop
   net-smtp
@@ -243,6 +248,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   sassc-rails
   selenium-webdriver
+  sitemap_generator
   sprockets-rails
   sqlite3
   stimulus-rails

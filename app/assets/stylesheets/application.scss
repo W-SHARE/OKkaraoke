@@ -26,34 +26,38 @@ a{
 }
 
 header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset 0px -1px 1px 0px gray;
 }
 .hamburger-menu{
-    float: right;
-    margin-top: 40px;
-    margin-right: 50px;
+    line-height: 80px;
 }
 .hamburger-menu img{
+    position: fixed;
     width: 25px;
     height: 20px;
     cursor: pointer;
+    padding: 8px;
+    background-color: white;
+    right: 40px;
+    top: 20px;
 }
 .navi{
     background-color: white;
     position: fixed;
-    top: 0;
+    top: 72px;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 998;
-    transition: 500ms;
+    z-index: 980;
 }
 .navi ul{
-    margin-top: 90px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -73,4 +77,23 @@ header{
 .navi a:hover{
     background-color: #98C5E4;
     transition: 200ms;
+}
+.versionSnsContainer{
+    display: flex;
+    line-height: 80px;
+}
+.versionSnsContainer a{
+    margin-right: 8px;
+    height: 30px;
+    width: 30px;
+}
+.versionSnsContainer span{
+    font-size: 8px;
+    color: #808080;
+}
+.fa-twitter{
+    color: #1DA1F2;
+}
+.fa-instagram{
+    color: #FFC0CB;
 }
