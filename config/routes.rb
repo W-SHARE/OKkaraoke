@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/result', to: 'search#result'
   get '/map', to: 'search#map'
   get '/information', to: 'home#information'
-  #get '/contact', to: 'home#contact'
+  get '/contact', to: 'home#contact'
 
 end
 

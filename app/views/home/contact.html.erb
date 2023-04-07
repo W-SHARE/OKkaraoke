@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>ご意見箱</p>
+    </div>
+    <div class="informationContentWrapper">
+        <p class="contactDescription">
+        </p>
+        <%= form_with url: contact_path, method: :get, local: true, id: "contactForm" do |f| %>
+            <div class="contactContent">
+                <p>お名前</p>
+                <%= f.text_field :contacterName%>
+            </div>
+            <div class="contactContent">
+                <p>メールアドレス</p>
+                <%= f.text_field :contacterEmail%>
+            </div>
+            <div class="contactContent">
+                <p>お問い合わせ内容<span>※必須</span></p>
+                <%= f.text_field :contacterontent%>
+            </div>
+            <div class='button'>
+                <%= image_tag 'contactIcon.png', id: "contactIcon"%>
+                <%= f.submit 'この条件で検索', class: 'submit-button'%>
+            </div>
+        <% end%>
+    </div>
+</div>
