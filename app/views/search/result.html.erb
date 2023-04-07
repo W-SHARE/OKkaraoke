@@ -12,10 +12,10 @@
         $(".iconDescription").hide();
         $(".supportIcon").hover(
             function(){
-                $(".iconDescription").show();
+                $(".iconDescription").fadeIn(500);
             },
             function(){
-                $(".iconDescription").hide();
+                $(".iconDescription").fadeOut(500);
             });
 
         $("#price-order").addClass('soart-button-active');

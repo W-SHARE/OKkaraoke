@@ -1,12 +1,14 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".topDescription").hide();
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 100){
+                $(".topDescription").slideDown();
+            };
+        });
+    });
+</script>
 <div class='top-wrapper'>
-    <div class="versionSnsContainer">
-        <p class='version-name'>ver.1.1.1</p>
-        <div class="snsIcons">
-            <a class="fab fa-twitter fa-2x" href="https://twitter.com/waseda_share"></a>
-            <a class="fa-brands fa-instagram fa-2x" href="https://www.instagram.com/wshare1122"></a>
-            <span>Follow and Share Us!!</span>
-        </div>
-    </div>
     <%= image_tag 'top-logo.png', class: 'hero-img' %>
     <div class='top-description'>
         <div class='top-description-content'>
@@ -15,7 +17,7 @@
                 <%= image_tag 'top-search-logo.png' %>
             </div>
             <hr>
-            <P name='text'>
+            <P name='text', class="topDescription">
                 料金体系、利用する時間帯、利用時間、人数といった検索条件からお近くのカラオケ店舗を検索することができます。
             </P>
         </div>
@@ -25,7 +27,7 @@
                 <%= image_tag 'top-money-logo.png' %>
             </div>
             <hr>
-            <P name='text'>
+            <P name='text', class="topDescription">
                 複雑で店舗によって異なるカラオケの料金を自動で計算し、正確な料金を表示します。
             </P>
         </div>
@@ -35,7 +37,7 @@
                 <%= image_tag 'top-update-logo.png' %>
             </div>
             <hr>
-            <P name='text'>
+            <P name='text', class="topDescription">
                 今後もカラオケを楽しむことのできる機能を追加する予定です
             </P>
         </div>

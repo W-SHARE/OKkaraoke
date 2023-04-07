@@ -278,7 +278,7 @@ class SearchController < ApplicationController
         else
           hash[:timeZone] = "night"
           if day == 0 or day == 6 or day == 5
-            @hash[:holiday] = true
+            hash[:holiday] = true
           end
         end
 

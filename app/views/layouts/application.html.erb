@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
@@ -28,16 +28,24 @@
         $('#is-close').click(function(){
           $('#is-open').show();
           $('#is-close').hide();
-          $('.navi').show();
+          $('.navi').slideDown();
         });
         $('#is-open').click(function(){
           $('#is-open').hide();
           $('#is-close').show();
-          $('.navi').hide();
+          $('.navi').slideUp();
         });
       });
   </script>
     <header>
+    <div class="versionSnsContainer">
+        <p class='version-name'>ver.1.1.1</p>
+      <div class="snsIcons">
+          <a class="fab fa-twitter fa-2x" href="https://twitter.com/waseda_share"></a>
+          <a class="fa-brands fa-instagram fa-2x" href="https://www.instagram.com/wshare1122"></a>
+          <span>Follow and Share Us!!</span>
+      </div>
+    </div>
       <div class="hamburger-menu" id="is-open">
         <%= image_tag 'hamburger-menu-cross.png'%>
       </div>
