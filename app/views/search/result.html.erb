@@ -48,14 +48,14 @@
         let currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
         //現在地を中心に設定
-        map.setView([currentLatitude, currentLongitude], 18);
+        map.setView([currentLatitude, currentLongitude], 16);
             L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
             attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
         }).addTo(map);
 
         //半径1250mの円を描く
         let borderCircle = L.circle([currentLatitude, currentLongitude],{
-            radius: 1250,
+            radius: 650,
             color: "#4285F4"
         });
         borderCircle.addTo(map);

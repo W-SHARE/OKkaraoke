@@ -27,8 +27,8 @@ class SearchController < ApplicationController
     end
 
     #テスト用に現在地を手動で入力するのであればこちらに入力
-    #@currentLatitude = 35.713284
-    #@currentLongitude = 139.704939
+    @currentLatitude = 35.713284
+    @currentLongitude = 139.704939
 
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
@@ -88,7 +88,7 @@ class SearchController < ApplicationController
       distanceResult = JSON.parse(distanceResponse.body)
       distance = distanceResult["OutputData"]["geoLength"].to_i
 
-      if distance <= 1200
+      if distance <= 600
         #検索結果に応じて料金を計算
         if @begin_at_h < 18 #昼
           if 1 <= day and day<= 5 #平日

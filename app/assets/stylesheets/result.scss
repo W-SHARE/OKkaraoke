@@ -125,3 +125,9 @@
 .each-info a{
     background-color: red;
 }
+.leaflet-control-zoom-in {
+    display: none !important;
+}
+.leaflet-control-zoom-out {
+    display: none !important;
+}
