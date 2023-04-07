@@ -43,6 +43,7 @@
     font-size: 10px;
     opacity: 30%;
     padding-bottom: 20px;
+    margin-right: 8px;
 }
 .button{
     font-size: 20px;
@@ -101,9 +102,23 @@
     }
 }
 .versionSnsContainer{
-    padding-top: 20px;
-    padding-left: 20px;
+    display: flex;
+    padding: 20px 0 0 20px;
+    position: relative;
+    z-index: 999;
 }
-.versionSnsContainer i{
+.versionSnsContainer a{
     margin-right: 8px;
+    height: 30px;
+    width: 30px;
+}
+.versionSnsContainer span{
+    font-size: 8px;
+    color: #808080;
+}
+.fa-twitter{
+    color: #1DA1F2;
+}
+.fa-instagram{
+    color: #FFC0CB;
 }
