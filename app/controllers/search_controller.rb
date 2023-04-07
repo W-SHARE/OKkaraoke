@@ -27,8 +27,8 @@ class SearchController < ApplicationController
     end
 
     #テスト用に現在地を手動で入力するのであればこちらに入力
-    @currentLatitude = 35.713284
-    @currentLongitude = 139.704939
+    #@currentLatitude = 35.713284
+    #@currentLongitude = 139.704939
 
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
@@ -254,7 +254,7 @@ class SearchController < ApplicationController
 
         #注意事項の処理
         #時間帯を横断
-        if @begin_at_h + length60ary >18
+        if @begin_at_h + length60ary >18 and @begin_at_h < 18
           hash[:multiTimeZone] = true
         end
         #営業時間が終了する可能性

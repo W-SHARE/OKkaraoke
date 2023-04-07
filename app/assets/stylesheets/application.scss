@@ -35,13 +35,17 @@ header{
     box-shadow: inset 0px -1px 1px 0px gray;
 }
 .hamburger-menu{
-    float: right;
     line-height: 80px;
 }
 .hamburger-menu img{
+    position: fixed;
     width: 25px;
     height: 20px;
     cursor: pointer;
+    padding: 8px;
+    background-color: white;
+    right: 40px;
+    top: 20px;
 }
 .navi{
     background-color: white;
