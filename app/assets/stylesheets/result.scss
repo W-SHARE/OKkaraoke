@@ -33,7 +33,8 @@
     font-size: 20px;
 }
 .sub-condition{
-    margin-top: 8px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .result-content{
     border-top: #F4E662 solid 1px;
@@ -136,4 +137,33 @@
 }
 .result-info-icons img{
     height: 18px;
+}
+.supportIcon{
+    height: 15px;
+    width: 15px;
+    margin-left: 8px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.sub-condition-container{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 35px;
+    position: relative;
+}
+.iconDescription{
+    position: absolute;
+    right: 58px;
+    font-size: 13px;
+    padding: 20px;
+    background-color: white;
+    border: #4285F4 solid 1px;
+    border-radius: 5px;
+}
+.iconDescription img{
+    height: 18px;
+    margin-right: 8px;
+}
+.iconDescription span{
+    opacity: 0.6;
 }

@@ -8,6 +8,16 @@
 </style>
 <script type="text/javascript">
     $(document).ready(function() {
+
+        $(".iconDescription").hide();
+        $(".supportIcon").hover(
+            function(){
+                $(".iconDescription").show();
+            },
+            function(){
+                $(".iconDescription").hide();
+            });
+
         $("#price-order").addClass('soart-button-active');
         $('.distance').addClass('is-hidden')
         $('#distance-order').click(function(){
@@ -84,7 +94,7 @@
         let company;
         let distance;
         let phoneNumber;
-        let url;
+        let url
         let image;
 
         while (i < length){
@@ -123,7 +133,21 @@
 
         <p class="main-condition">「<%= @condition1%>、<%= @begin_at_h%>時<%= @begin_at_m%>分開始、<%= @length%>分間利用」で検索したカラオケ情報</p>
 
-        <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
+        <div class="sub-condition-container">
+            <p class="sub-condition">検索件数　<%= @sortedArrayLength%>件</p>
+            <%= image_tag "resultInfoSupport.png", class: "supportIcon"%>
+            <div class="iconDescription">
+                <%= image_tag "resultInfoDay"%><span>表示料金が昼料金であることを示します。</span><br>
+                <%= image_tag "resultInfoNight"%><span>表示料金が夜料金であることを示します。</span><br>
+                <%= image_tag "resultInfoHoliday"%><span>表示料金が休日・祝日料金であることを示します。</span><br>
+                <%= image_tag "resultInfoOneDrink"%><span>ワンドリンク制での価格であることを示します。</span><br>
+                <%= image_tag "resultInfoMulti"%><span>昼料金と夜料金の時間帯を股いでいるため、昼料金での計算結果を表示しています。</span><br>
+                <%= image_tag "resultInfoClosed"%><span>利用時間中に店舗が閉店する可能性があります。</span><br>
+                <%= image_tag "resultInfoYet"%><span>まだ店舗が開店していない可能性があります。</span><br>
+                <%= image_tag "resultInfoAlone"%><span>表示料金に追加でヒトカラ料金を支払う必要があります。</span><br>
+                <%= image_tag "resultInfoFreeTime"%><span>表示料金がフリータイムでの価格であることを示します。</span>
+            </div>
+        </div>
     </div>
     <div class="result-container price">
         <% i=0%>
