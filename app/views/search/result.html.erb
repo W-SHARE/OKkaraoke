@@ -105,12 +105,13 @@
             company = jsonArray[i]["company"];
             phoneNumber = jsonArray[i]["phoneNumber"];
             url = jsonArray[i]["url"];
+            image = jsonArray[i]["image"];
             marker = L.marker([latitudePin, longitudePin]);
             marker.addTo(map);
             marker.bindPopup(
-                `<p>${price}円</p>
+                `<img src="/assets/${image}">
+                <p>${price}円</p>
                 <div>
-                    ${company}<br>
                     ${distance}m<br>
                     <a href = "tel:${phoneNumber}">${phoneNumber}</a><br>
                     <a href="${url}">GoogleMapで表示</a>
