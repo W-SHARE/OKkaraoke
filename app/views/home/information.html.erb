@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".informationContent").hide();
+        $(".informationContentCloser").hide();
+        $(".informationContentOpner").click(function(){
+            $this = $(this);
+            $this.parent().next().show();
+            $this.siblings("img").show();
+            $this.hide();
+        });
+        $(".informationContentCloser").click(function(){
+            $this = $(this);
+            $this.parent().next().hide();
+            $this.siblings("img").show();
+            $this.hide();
+        });
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>お知らせ</p>
+    </div>
+    <div class="informationContentWrapper">
+        <div class="informationContentContainer">
+            <div>
+                <span class="informationTitle">ver1.0.0をリリース<br>
+                    <span name="date">2023/04/05</span>
+                </span>
+                <%= image_tag "plusCross", class: "informationContentOpner"%>
+                <%= image_tag "line.png", class: "informationContentCloser"%>
+            </div>
+            <p class="informationContent">
+                この度「OKカラオケ」のver1.0.0を公開いたしました。今後もより良いサービスにしていくために頑張りますので、是非成長を見守ってあげてください。
+            </p>
+        </div>
+        <div class="informationContentContainer">
+            <div>
+                <span class="informationTitle">検索の精度を向上させました<br>
+                    <span name="date">2023/04/06</span>
+                </span>
+                <%= image_tag "plusCross", class: "informationContentOpner"%>
+                <%= image_tag "line.png", class: "informationContentCloser"%>
+            </div>
+            <p class="informationContent">
+                カラオケの検索システムの精度を向上させました。それにより、前バージョンよりも精度の高い金額を表示することができるようになりました。また、その他の不具合に関しても修正いたしました。
+            </p>
+        </div>
+    </div>
+</div>

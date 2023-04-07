@@ -44,8 +44,8 @@
         let map = L.map('map');
 
         //現在地を入力
-        currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
-        currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
+        let currentLatitude = '<%== JSON.dump(@currentLatitude) %>';
+        let currentLongitude = '<%== JSON.dump(@currentLongitude) %>';
 
         //現在地を中心に設定
         map.setView([currentLatitude, currentLongitude], 18);
@@ -163,28 +163,28 @@
         <% while i < @sortedArrayLength do%>
             <div class="result-content">
                 <div class="result-left">
-                    <%= image_tag distanceOrderArray[i][:image] %>
-                    <p><%= distanceOrderArray[i][:name]%></p>
+                    <%= image_tag @distanceOrderArray[i][:image] %>
+                    <p><%= @distanceOrderArray[i][:name]%></p>
                 </div>
                 <div class="result-right">
                     <div class="price-display">
-                        <p><%= distanceOrderArray[i][:price]%>円</p>
-                        <%= link_to image_tag('directions-icon.png'), distanceOrderArray[i][:url]%>
+                        <p><%= @distanceOrderArray[i][:price]%>円</p>
+                        <%= link_to image_tag('directions-icon.png'), @distanceOrderArray[i][:url]%>
                     </div>
                     <div class="other-info">
                         <div class="other-info-above">
                             <div class="each-info">
                                 <%= image_tag 'distance-icon.png' %>
-                                <p><%= distanceOrderArray[i][:distance]%>m</p>
+                                <p><%= @distanceOrderArray[i][:distance]%>m</p>
                             </div>
                             <div class="each-info">
                                 <%= image_tag 'directions_walk-icon.png' %>
-                                <p><%= distanceOrderArray[i][:duration]%>min</p>
+                                <p><%= @distanceOrderArray[i][:duration]%>min</p>
                             </div>
                         </div>
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
-                            <%= link_to distanceOrderArray[i][:phoneNumber], "tel:" + distanceOrderArray[i][:phoneNumber] %>
+                            <%= link_to @distanceOrderArray[i][:phoneNumber], "tel:" + @distanceOrderArray[i][:phoneNumber] %>
                         </div>
                     </div>
                 </div>

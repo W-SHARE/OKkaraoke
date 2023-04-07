@@ -1,0 +1,31 @@
+.informationContentWrapper{
+    margin-top: 20px;
+}
+.informationContentContainer{
+    border-bottom: solid 1px #F4E662;
+    padding: 20px 20px 20px 0;
+}
+.informationContentContainer[name="lastInfomation"]{
+    border: none;
+}
+.informationContentContainer div{
+    display: flex;
+    justify-content: space-between;
+}
+.informationContentContainer img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.informationContent{
+    margin: 40px 0 20px 0;
+    font-size: 12px;
+    opacity: 0.6;
+}
+.informationTitle{
+    font-size: 16px;
+}
+.informationContentContainer span[name="date"]{
+    font-size: 8px;
+    opacity: 0.6;
+}

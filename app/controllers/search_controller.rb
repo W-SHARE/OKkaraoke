@@ -55,7 +55,6 @@ class SearchController < ApplicationController
     length30ary = @length / 30
     length60ary = @length / 60.to_f
 
-
     #繰り返し処理に必要な変数の宣言
     #arrayLngthハSpreadsheetでデータの入っている行数を示す
     arrayLength = resultPage1["values"].length
@@ -186,7 +185,7 @@ class SearchController < ApplicationController
             end
           else #休日
             if classification == 'student' #学生
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][21].to_i + 380
                 else #飲み放題制
@@ -200,7 +199,7 @@ class SearchController < ApplicationController
                 end
               end
             else #一般
-              if length == 180 #フリータイム
+              if @length == 180 #フリータイム
                 if resultPage2["values"][i][13] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][22].to_i + 380
                 else #飲み放題制

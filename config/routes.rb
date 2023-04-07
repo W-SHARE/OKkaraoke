@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/search', to: 'search#search'
   get '/result', to: 'search#result'
   get '/map', to: 'search#map'
+  get '/information', to: 'home#information'
+  #get '/contact', to: 'home#contact'
 
 end
 
