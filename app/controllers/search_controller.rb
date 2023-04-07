@@ -38,14 +38,6 @@ class SearchController < ApplicationController
     #整数                      0         1        2        3          4          5        6
     day = Date.today.wday
 
-    #バリデーション
-
-    if classification == nil or @length == nil or @begin_at_h == nil or @begin_at_m == nil #or @number = nil
-
-      @validateMessage = "項目を全て入力してください"
-      render("search/search")
-    end
-
       #Spreadsheetからpage1のインポート
       uri = URI.parse("https://sheets.googleapis.com//v4/spreadsheets/1eworVB15Y_fZtzvWHPxBt_AWMZSByQecs9JM2vNnnCs/values/page1?key=AIzaSyBqtRpLHwPEKyWtRoD_MvM7LdIutUPCjIc")
       response = Net::HTTP.get_response(uri)
