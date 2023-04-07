@@ -41,6 +41,7 @@
             $('.search-wrapper').removeClass('is-hidden');
             $('header').removeClass('is-hidden');
         });
+
         let map = L.map('map');
 
         //現在地を入力
@@ -152,6 +153,35 @@
                             <%= image_tag 'call-icon.png' %>
                             <%= link_to @priceOrderArray[i][:phoneNumber], "tel:" + @priceOrderArray[i][:phoneNumber] %>
                         </div>
+                        <div class="result-info-icons">
+                            <% if @priceOrderArray[i][:timeZone] == "day"%>
+                                <%= image_tag "resultInfoDay"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:timeZone] == "night"%>
+                                <%= image_tag "resultInfoNight"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:holiday]%>
+                                <%= image_tag "resultInfoHoliday"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:oneDrink]%>
+                                <%= image_tag "resultInfoOneDrink"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:multiTimeZone]%>
+                                <%= image_tag "resultInfoMulti"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:closeSoon]%>
+                                <%= image_tag "resultInfoClosed"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:beforeOpen]%>
+                                <%= image_tag "resultInfoYet"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:alone]%>
+                                <%= image_tag "resultInfoAlone"%>
+                            <% end%>
+                            <% if @priceOrderArray[i][:freeTime]%>
+                                <%= image_tag "resultInfoFreeTime"%>
+                            <% end%>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,6 +215,35 @@
                         <div class="other-info-below" >
                             <%= image_tag 'call-icon.png' %>
                             <%= link_to @distanceOrderArray[i][:phoneNumber], "tel:" + @distanceOrderArray[i][:phoneNumber] %>
+                        </div>
+                        <div class="result-info-icons">
+                            <% if @distanceOrderArray[i][:timeZone] == "day"%>
+                                <%= image_tag "resultInfoDay"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:timeZone] == "night"%>
+                                <%= image_tag "resultInfoNight"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:holiday]%>
+                                <%= image_tag "resultInfoHoliday"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:oneDrink]%>
+                                <%= image_tag "resultInfoOneDrink"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:multiTimeZone]%>
+                                <%= image_tag "resultInfoMulti"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:closeSoon]%>
+                                <%= image_tag "resultInfoClosed"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:beforeOpen]%>
+                                <%= image_tag "resultInfoYet"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:alone]%>
+                                <%= image_tag "resultInfoAlone"%>
+                            <% end%>
+                            <% if @distanceOrderArray[i][:freeTime]%>
+                                <%= image_tag "resultInfoFreeTime"%>
+                            <% end%>
                         </div>
                     </div>
                 </div>

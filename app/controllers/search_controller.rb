@@ -88,33 +88,57 @@ class SearchController < ApplicationController
       distanceResult = JSON.parse(distanceResponse.body)
       distance = distanceResult["OutputData"]["geoLength"].to_i
 
+      @resultInfoArray = Array.new
+
       if distance <= 600
         #検索結果に応じて料金を計算
         if @begin_at_h < 18 #昼
           if 1 <= day and day<= 5 #平日
             if classification == 'student' #学生
               if @length == 180 #フリータイム
-                if resultPage2["values"][i][10] == "TRUE" #ワンドリンク制
-                  hash[:price] = resultPage1["values"][i][15].to_i + 380
-                else #飲み放題制
-                  hash[:price] = resultPage1["values"][i][15].to_i
+                if day != 5
+                  if resultPage2["values"][i][10] == "TRUE" #ワンドリンク制
+                    hash[:price] = resultPage1["values"][i][15].to_i + 380
+                    hash[:oneDrink] = true
+                  else #飲み放題制
+                    hash[:price] = resultPage1["values"][i][15].to_i
+                  end
+                else
+                  if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
+                    hash[:price] = resultPage1["values"][i][15].to_i + 380
+                    hash[:oneDrink] = true
+                  else #飲み放題制
+                    hash[:price] = resultPage1["values"][i][15].to_i
+                  end
                 end
               else #通常利用
                 if resultPage2["values"][i][2] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][7].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][7].to_i * length30ary
                 end
               end
             else #一般
               if @length == 180 #フリータイム
-                if resultPage2["values"][i][11] == "TRUE" #ワンドリンク制
-                  hash[:price] = resultPage1["values"][i][16].to_i + 380
-                else #飲み放題制
-                  hash[:price] = resultPage1["values"][i][16].to_i
+                if day != 5
+                  if resultPage2["values"][i][11] == "TRUE" #ワンドリンク制
+                    hash[:oneDrink] = true
+                    hash[:price] = resultPage1["values"][i][16].to_i + 380
+                  else #飲み放題制
+                    hash[:price] = resultPage1["values"][i][16].to_i
+                  end
+                else
+                  if resultPage2["values"][i][13] == "TRUE" #ワンドリンク制
+                    hash[:oneDrink] = true
+                    hash[:price] = resultPage1["values"][i][16].to_i + 380
+                  else #飲み放題制
+                    hash[:price] = resultPage1["values"][i][16].to_i
+                  end
                 end
               else #通常利用
                 if resultPage2["values"][i][3] == "TRUE" #ワンドリンク制
+                  hash[:oneDrink] = true
                   hash[:price] = resultPage1["values"][i][8].to_i * length30ary + 380
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][8].to_i * length30ary
@@ -126,11 +150,13 @@ class SearchController < ApplicationController
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][17].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][17].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][4] == "TRUE" #ワンドリンク制
+                  hash[:oneDrink] = true
                   hash[:price] = resultPage1["values"][i][9].to_i * length30ary + 380
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][9].to_i * length30ary
@@ -140,12 +166,14 @@ class SearchController < ApplicationController
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][13] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][18].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][18].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][5] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][10].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][10].to_i * length30ary
                 end
@@ -153,17 +181,19 @@ class SearchController < ApplicationController
             end
           end
         else #夜
-          if 1 <= day and day <= 5 #平日
+          if 1 <= day and day <= 4 #平日
             if classification == 'student' #学生
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][10] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][19].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][19].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][6] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][11].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][11].to_i * length30ary
                 end
@@ -172,12 +202,14 @@ class SearchController < ApplicationController
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][11] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][20].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][20].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][7] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][12].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][12].to_i * length30ary
                 end
@@ -188,12 +220,14 @@ class SearchController < ApplicationController
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][21].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][21].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][8] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][13].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][13].to_i * length30ary
                 end
@@ -202,12 +236,14 @@ class SearchController < ApplicationController
               if @length == 180 #フリータイム
                 if resultPage2["values"][i][13] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][22].to_i + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][22].to_i
                 end
               else #通常利用
                 if resultPage2["values"][i][9] == "TRUE" #ワンドリンク制
                   hash[:price] = resultPage1["values"][i][14].to_i * length30ary + 380
+                  hash[:oneDrink] = true
                 else #飲み放題制
                   hash[:price] = resultPage1["values"][i][14].to_i * length30ary
                 end
@@ -219,16 +255,37 @@ class SearchController < ApplicationController
         #注意事項の処理
         #時間帯を横断
         if @begin_at_h + length60ary >18
-          @alertMultiTimeZone = true
+          hash[:multiTimeZone] = true
         end
         #営業時間が終了する可能性
-        if @begin_at_h + length60ary > 6
-          @alertPossiblyClose = true
+        if @begin_at_h + length60ary > 6 and @begin_at_h < 6
+          hash[:closeSoon] = true
         end
         #開店前の可能性
-        if @begin_at_h < 10
-          @alertBeforeOpen = true
+        if 6 <= @begin_at_h and @begin_at_h < 10
+          hash[:beforeOpen] = true
         end
+
+        if @length == 180
+          hash[:freeTime] = true
+        end
+
+        if @begin_at_h < 18
+          hash[:timeZone] = "day"
+          if day == 0 or day == 6
+            hash[:holiday] = true
+          end
+        else
+          hash[:timeZone] = "night"
+          if day == 0 or day == 6 or day == 5
+            @hash[:holiday] = true
+          end
+        end
+
+        if resultPage2["values"][i][1] == "TRUE"
+          hash[:alone] = true
+        end
+
 
         #料金以外の店舗情報を入力
         hash[:name] = resultPage1["values"][i][1]
