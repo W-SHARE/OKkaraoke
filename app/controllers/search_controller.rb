@@ -5,7 +5,7 @@ class SearchController < ApplicationController
   def search
     currentTime = Time.now
 
-    @begin_at_h = currentTime.hour + 2
+    @begin_at_h = currentTime.hour + 9
     @begin_at_m = currentTime.min
   end
 
@@ -25,10 +25,6 @@ class SearchController < ApplicationController
     else
       @condition1 = "一般"
     end
-
-    #テスト用に現在地を手動で入力するのであればこちらに入力
-    #@currentLatitude = 35.713284
-    #@currentLongitude = 139.704939
 
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
