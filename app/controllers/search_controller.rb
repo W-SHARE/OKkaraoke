@@ -27,8 +27,8 @@ class SearchController < ApplicationController
     end
 
     #テスト用に現在地を手動で入力するのであればこちらに入力
-    @currentLatitude = 35.713284
-    @currentLongitude = 139.704939
+    #@currentLatitude = 35.713284
+    #@currentLongitude = 139.704939
 
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
