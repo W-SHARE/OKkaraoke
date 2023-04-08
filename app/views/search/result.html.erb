@@ -109,9 +109,9 @@
             marker = L.marker([latitudePin, longitudePin]);
             marker.addTo(map);
             marker.bindPopup(
-                `<img src="https://okkaraoke.herokuapp.com/app/assets/images/${image}">
-                <p>${price}円</p>
+                `<p>${price}円</p>
                 <div>
+                    ${company}<br>
                     ${distance}m<br>
                     <a href = "tel:${phoneNumber}">${phoneNumber}</a><br>
                     <a href="${url}">GoogleMapで表示</a>
