@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'home#top'
+  get '/', to: 'home#index'
   get '/search', to: 'search#search'
   get '/result', to: 'search#result'
   get '/map', to: 'search#map'
