@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   require 'date'
 
   def search
-    currentTime = Time.now
+    currentTime = Time.zone.now
 
     @begin_at_h = currentTime.hour
     @begin_at_m = currentTime.min
