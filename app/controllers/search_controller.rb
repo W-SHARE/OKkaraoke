@@ -26,6 +26,9 @@ class SearchController < ApplicationController
       @condition1 = "一般"
     end
 
+    currentLatitudeFloat = @currentLatitude
+    currentLongitudeFloat = @currentLongitude
+
     #現在地をuri用にエンコード。101行目あたりで使用
     currentLatitude = URI.encode_www_form({latitude1: @currentLatitude})
     currentLongitude = URI.encode_www_form({longitude1: @currentLongitude})
@@ -76,6 +79,8 @@ class SearchController < ApplicationController
       hash[:latitude] = objectLatitude
       hash[:longitude] = objectLongitude
 
+      #東京を北緯35度として計算。北緯35度における経度1度長は91287.7885m, 緯度1度長は110940.5844m
+=begin
       #現在地とカラオケ店舗の距離計算。distanceはメートル
       objectLatitude = URI.encode_www_form({latitude2: objectLatitude})
       objectLongitude = URI.encode_www_form({longitude2: objectLongitude})
@@ -83,6 +88,15 @@ class SearchController < ApplicationController
       distanceResponse = Net::HTTP.get_response(distanceUri)
       distanceResult = JSON.parse(distanceResponse.body)
       distance = distanceResult["OutputData"]["geoLength"].to_i
+=end
+
+      differenceLatitude = (currentLatitudeFloat.to_f - objectLatitude.to_f).abs
+      differenceLongitude = (currentLongitudeFloat.to_f - objectLongitude.to_f).abs
+      differenceLatitudeMeter = differenceLatitude * 110940.5844
+      differenceLongitudeMeter = differenceLongitude * 91287.7885
+      differenceLatitudeMeterSquare = differenceLatitudeMeter**2
+      differenceLongitudeMeterSquare = differenceLongitudeMeter**2
+      distance = Math.sqrt(differenceLatitudeMeterSquare + differenceLongitudeMeterSquare).to_i
 
       @resultInfoArray = Array.new
 
