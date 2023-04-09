@@ -1,56 +1,55 @@
-    <meta name="google-site-verification" content="LA4I5Au_Mqvw2-Caqws8YLq15l011tdp67dsXb3OVJY" />
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".topDescription").hide();
-            $(window).scroll(function(){
-                if($(this).scrollTop() >= 100){
-                    $(".topDescription").slideDown();
-                };
-            });
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".topDescription").hide();
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 100){
+                $(".topDescription").slideDown();
+            };
         });
-    </script>
+    });
+</script>
 
-    <div class='top-wrapper'>
-        <%= image_tag 'top-logo.png', class: 'hero-img' %>
-        <div class='top-description'>
-            <div class='top-description-content'>
-                <div class='top-description-title'>
-                    <p name='title'>カラオケ店舗を検索</p>
-                    <%= image_tag 'top-search-logo.png' %>
-                </div>
-                <hr>
-                <P name='text', class="topDescription">
-                    料金体系、利用する時間帯、利用時間、人数といった検索条件からお近くのカラオケ店舗を検索することができます。
-                </P>
+<div class='top-wrapper'>
+    <%= image_tag 'top-logo.png', class: 'hero-img' %>
+    <div class='top-description'>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>カラオケ店舗を検索</p>
+                <%= image_tag 'top-search-logo.png' %>
             </div>
-            <div class='top-description-content'>
-                <div class='top-description-title'>
-                    <p name='title'>正確な料金を表示</p>
-                    <%= image_tag 'top-money-logo.png' %>
-                </div>
-                <hr>
-                <P name='text', class="topDescription">
-                    複雑で店舗によって異なるカラオケの料金を自動で計算し、正確な料金を表示します。
-                </P>
-            </div>
-            <div class='top-description-content'>
-                <div class='top-description-title'>
-                    <p name='title'>バージョンアップにも期待</p>
-                    <%= image_tag 'top-update-logo.png' %>
-                </div>
-                <hr>
-                <P name='text', class="topDescription">
-                    今後もカラオケを楽しむことのできる機能を追加する予定です
-                </P>
-            </div>
+            <hr>
+            <P name='text', class="topDescription">
+                料金体系、利用する時間帯、利用時間、人数といった検索条件からお近くのカラオケ店舗を検索することができます。
+            </P>
         </div>
-        <div class='button'>
-            <%= image_tag 'search-icon.png' %>
-            <%= link_to 'カラオケを検索する', '/search' %>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>正確な料金を表示</p>
+                <%= image_tag 'top-money-logo.png' %>
+            </div>
+            <hr>
+            <P name='text', class="topDescription">
+                複雑で店舗によって異なるカラオケの料金を自動で計算し、正確な料金を表示します。
+            </P>
         </div>
-        <p class='top-foot'>
-            <span>created by</span>
-            W-SHARE
-        </p>
+        <div class='top-description-content'>
+            <div class='top-description-title'>
+                <p name='title'>バージョンアップにも期待</p>
+                <%= image_tag 'top-update-logo.png' %>
+            </div>
+            <hr>
+            <P name='text', class="topDescription">
+                今後もカラオケを楽しむことのできる機能を追加する予定です
+            </P>
+        </div>
     </div>
+    <div class='button'>
+        <%= image_tag 'search-icon.png' %>
+        <%= link_to 'カラオケを検索する', '/search' %>
+    </div>
+    <p class='top-foot'>
+        <span>created by</span>
+        W-SHARE
+    </p>
+</div>
 

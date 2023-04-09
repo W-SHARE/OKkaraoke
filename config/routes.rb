@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/map', to: 'search#map'
   get '/information', to: 'home#information'
   #get '/contact', to: 'home#contact'
-  get '/google30c55cfb2d638d22.html', to: 'home#google30c55cfb2d638d22'
+  
 
 end
 
