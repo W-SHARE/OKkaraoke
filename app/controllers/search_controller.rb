@@ -312,7 +312,10 @@ class SearchController < ApplicationController
         hash[:phoneNumber] = resultPage1["values"][i][4]
         hash[:url] = resultPage1["values"][i][2]
         hash[:image] = resultPage1["values"][i][6]
-        @array.push(hash)
+
+        if hash[:price] > 0
+          @array.push(hash)
+        end
       end
       i = i + 1
     end #while文のend
