@@ -72,6 +72,18 @@
         <li><%= link_to 'トップページ', '/' %></li>
         <li><%= link_to 'カラオケを検索', '/search' %></li>
         <li><%= link_to 'お知らせ', '/information' %></li>
+
+        <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li> <!-- ログアウトをする -->
+        <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li> <!-- ログイン画面に移行する -->
+        <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li> <!-- 新規登録画面に移行する -->
+        <% end %>
+        
+
+
         <!--<li><%= link_to 'ご意見箱', '/contact' %></li>-->
       </ul>
     </div>

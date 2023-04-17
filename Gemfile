@@ -82,3 +82,5 @@ end
 
 gem 'meta-tags'
 gem 'sitemap_generator'
+
+gem 'devise'
