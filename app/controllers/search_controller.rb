@@ -102,7 +102,7 @@ class SearchController < ApplicationController
 
       if distance <= 600
         #検索結果に応じて料金を計算
-        if @begin_at_h < 18 #昼
+        if @begin_at_h < 18 and @begin_at_h > 6 #昼
           if 1 <= day and day<= 5 #平日
             if classification == 'student' #学生
               if @length == 180 #フリータイム
@@ -280,7 +280,7 @@ class SearchController < ApplicationController
           hash[:freeTime] = true
         end
 
-        if @begin_at_h < 18
+        if @begin_at_h < 18 and @begin_at_h > 6
           hash[:timeZone] = "day"
           if day == 0 or day == 6
             hash[:holiday] = true
