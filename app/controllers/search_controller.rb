@@ -115,10 +115,10 @@ class SearchController < ApplicationController
                   end
                 else
                   if resultPage2["values"][i][12] == "TRUE" #ワンドリンク制
-                    hash[:price] = resultPage1["values"][i][15].to_i + 380
+                    hash[:price] = resultPage1["values"][i][17].to_i + 380
                     hash[:oneDrink] = true
                   else #飲み放題制
-                    hash[:price] = resultPage1["values"][i][15].to_i
+                    hash[:price] = resultPage1["values"][i][17].to_i
                   end
                 end
               else #通常利用
