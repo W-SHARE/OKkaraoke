@@ -1,0 +1,52 @@
+
+.stockTitleContainer{
+    margin-top:30px;
+    height:50px;
+    border-bottom: 1px solid black;
+}
+.stockTitle{
+    font-size:24px;
+    width:150px;
+    float:left;
+}
+.stockTitleContainer img{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    vertical-align: auto;
+}
+
+.stockContentContainer{
+    height:40px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+.stockContentContainer p{
+    float:left;
+}
+.musicTitle{
+    width:45%;
+    text-align: center;
+}
+.score,.janre {
+    width:20%;
+    text-align: center;
+}
+.forOpner{
+    width:15%;
+    float:left;
+    text-align: center;
+    display: table-cell; /* インライン要素をテーブルセル化する */
+    vertical-align: auto; /* インライン要素の上下のセンタリングを指定する */
+}
+.stockContentOpner{
+    width: 20%;
+    height: 20px;
+    cursor: pointer;
+}
+.musicContentOpner{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
