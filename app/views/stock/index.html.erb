@@ -1,0 +1,155 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".informationContent").hide();
+        $(".informationContentCloser").hide();
+        $(".informationContentOpner").click(function(){
+            $this = $(this);
+            $this.parent().next().slideDown();
+            $this.siblings("img").show();
+            $this.hide();
+        });
+        $(".informationContentCloser").click(function(){
+            $this = $(this);
+            $this.parent().next().slideUp();
+            $this.siblings("img").show();
+            $this.hide();
+        });
+    });
+</script>
+<div class='search-wrapper'>
+    <div class='page-header'>
+        <%= image_tag 'top-logo.png' %>
+        <p>ストックリスト</p>
+    </div>
+    <div class="stockContentWrapper">
+        <div class="stockTitleContainer"> <!--プレイリストのタイトル用のブロック -->
+            <p class="stockTitle first_title">歌いたい曲</p>
+            <p class="stockTitle second_title">高得点用</p>
+            
+                <%= image_tag "plusCross.png", class: "stockContentOpner"%>
+            
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">曲名</p>
+            <p class="score">点数</p>
+            <p class="janre">ジャンル</p>
+            <div class="forOpner">
+                <%= image_tag "plusCross.png", class: "stockContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        <div class="stockContentContainer">
+            <p class="musicTitle">キミシダイ列車</p>
+            <p class="score">87.7</p>
+            <p class="janre">rock</p>
+            <div class="forOpner">
+                <%= image_tag "threedot_horisontal.png", class: "musicContentOpner"%>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
