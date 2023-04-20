@@ -67,17 +67,6 @@ class SearchController < ApplicationController
       #@arrayに代入する空想配列。繰り返しのたびに新しい箱を準備することで、上書きを防止
       hash = Hash.new
 
-=begin
-      #住所からカラオケ店舗の緯度経度を求める
-      #param[][][]の最後の数字は、Spreadsheet上の列を示す。尚A列を0としてカウント
-      address = resultPage1["values"][i][3]
-      params = URI.encode_www_form({q: address})
-      uri = URI.parse("https://msearch.gsi.go.jp/address-search/AddressSearch?#{params}")
-      response = Net::HTTP.get_response(uri)
-      addressResult = JSON.parse(response.body)
-      objectLatitude = addressResult[0]["geometry"]["coordinates"][1]
-      objectLongitude = addressResult[0]["geometry"]["coordinates"][0]
-=end
       objectLatitude = resultPage2["values"][i][14]
       objectLongitude = resultPage2["values"][i][15]
       hash[:latitude] = objectLatitude
