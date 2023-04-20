@@ -67,6 +67,7 @@ class SearchController < ApplicationController
       #@arrayに代入する空想配列。繰り返しのたびに新しい箱を準備することで、上書きを防止
       hash = Hash.new
 
+=begin
       #住所からカラオケ店舗の緯度経度を求める
       #param[][][]の最後の数字は、Spreadsheet上の列を示す。尚A列を0としてカウント
       address = resultPage1["values"][i][3]
@@ -76,20 +77,13 @@ class SearchController < ApplicationController
       addressResult = JSON.parse(response.body)
       objectLatitude = addressResult[0]["geometry"]["coordinates"][1]
       objectLongitude = addressResult[0]["geometry"]["coordinates"][0]
+=end
+      objectLatitude = resultPage2["values"][i][14]
+      objectLongitude = resultPage2["values"][i][15]
       hash[:latitude] = objectLatitude
       hash[:longitude] = objectLongitude
 
       #東京を北緯35度として計算。北緯35度における経度1度長は91287.7885m, 緯度1度長は110940.5844m
-=begin
-      #現在地とカラオケ店舗の距離計算。distanceはメートル
-      objectLatitude = URI.encode_www_form({latitude2: objectLatitude})
-      objectLongitude = URI.encode_www_form({longitude2: objectLongitude})
-      distanceUri = URI.parse("https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/bl2st_calc.pl?#{currentLatitude}&#{currentLongitude}&#{objectLatitude}&#{objectLongitude}&outputType=json&ellipsoid=bessel")
-      distanceResponse = Net::HTTP.get_response(distanceUri)
-      distanceResult = JSON.parse(distanceResponse.body)
-      distance = distanceResult["OutputData"]["geoLength"].to_i
-=end
-
       differenceLatitude = (currentLatitudeFloat.to_f - objectLatitude.to_f).abs
       differenceLongitude = (currentLongitudeFloat.to_f - objectLongitude.to_f).abs
       differenceLatitudeMeter = differenceLatitude * 110940.5844
